@@ -4,78 +4,66 @@
     <meta charset="UTF-8">
     <title>Publications - AASL</title>
     <style>
-        /* 구글 사이트와 유사한 깔끔한 스타일 적용 */
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* 가독성 좋은 산세리프 폰트 */
-            line-height: 1.6;        /* 줄 간격 확보 */
-            color: #333;             /* 눈이 편안한 진한 회색 */
-            max-width: 1000px;       /* 너무 넓게 퍼지지 않도록 폭 제한 */
-            margin: 0 auto;          /* 중앙 정렬 */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1100px;
+            margin: 0 auto;
             padding: 20px;
         }
 
-        /* 내비게이션 스타일 */
-        nav {
-            margin-bottom: 20px;
-            font-size: 1.1em;
+        /* 서브 페이지 헤더 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 40px;
         }
-        nav a {
-            text-decoration: none;
-            color: #444;
-            margin: 0 5px;
-        }
-        nav a:hover {
-            text-decoration: underline;
-            color: #000;
-        }
-
-        /* 소제목 스타일 (Google Sites 느낌) */
-        h2 {
-            font-size: 1.8em;
-            font-weight: 700;
+        .header-logo {
+            font-size: 1.5em;
+            font-weight: 900;
             color: #222;
-            margin-top: 50px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ddd; /* 하단 구분선 추가 */
-        }
-
-        /* 리스트 스타일 */
-        ol {
-            padding-left: 20px;
-            margin-left: 10px;
-        }
-        li {
-            margin-bottom: 15px; /* 항목 간 간격 넓힘 */
-            padding-left: 5px;
-            word-break: keep-all; /* 단어 단위 줄바꿈 */
-        }
-
-        /* 링크 스타일 */
-        a {
-            color: #1a0dab; /* 구글 링크 색상 */
             text-decoration: none;
         }
-        a:hover {
-            text-decoration: underline;
+        nav { font-size: 1.05em; }
+        nav a { text-decoration: none; color: #444; margin-left: 20px; font-weight: 500; }
+        nav a:hover { text-decoration: underline; color: #000; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            nav { text-align: center; }
+            nav a { margin: 0 10px; }
         }
 
-        /* 학술지명 이탤릭체 클래스 */
-        .journal {
-            font-style: italic;
+        h1 { font-size: 2.2em; margin-bottom: 30px; color: #222; }
+        h2 {
+            font-size: 1.8em; font-weight: 700; color: #222;
+            margin-top: 50px; margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
         }
+        ol { padding-left: 20px; margin-left: 10px; }
+        li { margin-bottom: 15px; padding-left: 5px; word-break: keep-all; }
+        a { color: #1a0dab; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .journal { font-style: italic; }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a> |
-        <a href="people.html">People</a> |
-        <a href="research.html">Research</a> |
-        <a href="publication.html">Publications</a> |
-        <a href="lectures.html">Lectures</a> |
-        <a href="board.html">Board</a>
-    </nav>
-    <hr style="border: 0; border-top: 1px solid #ccc;">
+    <header>
+        <a href="index.html" class="header-logo">AASL</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="people.html">People</a>
+            <a href="research.html">Research</a>
+            <a href="publication.html">Publications</a>
+            <a href="lectures.html">Lectures</a>
+            <a href="board.html">Board</a>
+        </nav>
+    </header>
 
     <h1>Publications</h1>
 
@@ -130,30 +118,6 @@
         <li>Mingu Kim, Youdan Kim, and Chan Gook Park, “Guidance Gain Analysis via Oscillation Motion for Error Dynamics-Based Unmanned Aerial Vehicle Guidance Law for Stationary Target Observation,” 4th European Conference on Aero-Space Sciences (EUCASS 2011), Saint Petersburg, Russia, July 2011.</li>
         <li>Mingu Kim, Daewon Lee, Jaemann Park, Chulwoo Park, H. Jin Kim, and Youdan Kim, “Vision-Based Hardware-In-the Loop Simulation Test of Vision-Based Net-Recovery for Fixed-wing Unmanned Aerial Vehicles,” 3rd Asia-Pacific International Symposium on Aerospace Technology (APISAT-2011), Melbourne, Australia, Feb. 28-March 3, 2011.</li>
         <li>Mingu Kim, Youkyung Hong, Chaeik Ahn, and Youdan Kim, “Error Dynamics-based Guidance Law of Unmanned Aerial Vehicles for Stationary Target Observation,” 2nd Asia-Pacific International Symposium on Aerospace Technology (APISAT-2010), Xi’an, China, September 2010.</li>
-    </ol>
-
-    <h2>Domestic Conferences (in Korean)</h2>
-    <ol>
-        <li>박철우, 김민구, "웨어러블 장치 적용을 위한 저가형 GNSS/IMU 센서 융합 연구," 한국항공우주학회 춘계학술발표회, 서귀포시, 제주도, 2025년 4월.</li>
-        <li>김수연, 이세웅, 전소율, 정호재, 김민구, "큐브위성 자세제어를 위한 전기추력기 배치 형상 연구," 한국항공우주학회 추계학술발표회, 제주시, 제주도, 2021년 11월.</li>
-        <li>고정길, 김민구, "자기토커와 전기 추력기를 이용한 큐브위성 초기 자세제어 연구," 한국항공우주학회 춘계학술발표회, 삼척시, 강원도, 2021년 7월.</li>
-        <li>이상민, 김민구, 김유단, "쿼드로터의 위치 및 자세 동역학을 고려한 슬라이딩 모드 기반 궤적추종 제어기," 한국항공우주학회 추계학술발표회, 제주시, 제주도, 2019년 11월.</li>
-        <li>김민구, “충돌시간 제어 유도기법을 이용한 동시 공격 협업 유도기법,” 한국항공우주학회 추계학술발표회, 제주시, 제주도, 2017년 11월.</li>
-        <li>서중보, 김민구, “고기동성을 갖춘 저궤도위성용 제어모멘텀 휠 장치 개발,” 한국항공우주학회 추계학술발표회, 제주시, 제주도, 2017년 11월.</li>
-        <li>김민구, 이석원, 김유단, “해면밀착비행을 모사한 등속이동 목표물 요격 3차원 유도법칙,” 한국군사과학기술학회 종합학술대회, 서귀포시, 제주도, 2017년 6월.</li>
-        <li>송희성, 김민구, 김유단, “Dubins 곡선을 이용한 무인항공기의 랑데부 경로계획,” 한국항공우주학회 추계학술발표회, 제주시, 제주도, 2016년 11월.</li>
-        <li>윤유정, 김민구, 김유단, “무인기 공중급유를 위한 랑데부 3차원 경로계획,” 한국항공우주학회 추계학술발표회, 제주시, 제주도, 2016년 11월.</li>
-        <li>이석원, 김민구, 박종호, 길근오, 김유단, 제상언, “대함유도탄의 생존성 모의분석을 위한 시뮬레이션 프로그램 환경 개발,” 한국항공우주학회 추계학술발표회, 제주시, 제주도, 2016년 11월.</li>
-        <li>김민구, 김유단, “유전 알고리즘을 이용한 랑데부 유도기법 유도이득 설정 연구,” 한국항공우주학회 추계학술발표회, 제주시, 제주도, 2016년 11월.</li>
-        <li>김민구, 윤유정, 김유단, “무인항공기 공중급유를 위한 의사추적 유도기법 기반 랑데부 유도 설계,” 한국군사과학기술학회 종합학술대회, 서귀포시, 제주도, 2016년 6월.</li>
-        <li>윤유정, 김민구, 김유단, “무인기 공중급유를 위한 랑데부 경로 계획,” 한국항공우주학회 춘계학술발표회, 고성군, 강원도, 2016년 4월.</li>
-        <li>김민구, 박지현, 강철우, 임재영, 김현진, 정인석, 박찬국, 김유단, 김현진, 김성완, “SNUSAT-1 자세제어 알고리즘 검증을 위한 시뮬레이터 설계,” 한국항공우주학회 추계학술발표회, 제주시, 제주도, 2014년 11월.</li>
-        <li>김민구, 이용우, 한범구, 김유단, “정지 목표물 타격을 위한 3차원 추적 유도법칙,” 한국항공우주학회 추계학술발표회, 제주시, 제주도, 2013년 11월.</li>
-        <li>오경택, 박철우, 김민구, 박종호, 김유단, ”소형 무인항공기 시간영역 시스템 식별,” 한국항공우주학회 춘계학술발표회, 정선군, 강원도, 2012년 4월.</li>
-        <li>김민구, 김유단, ”충돌각 조건을 고려한 시선각 오차 동역학 기반의 비선형 유도법칙,” 한국항공우주학회 추계학술발표회, 평창군, 강원도, 2011년 11월.</li>
-        <li>김민구, 신호현, 김유단, ”오차동역학 기반 유도법칙의 유도이득 분석,” 한국항공우주학회 추계학술발표회, 제주시, 제주도, 2010년 11월.</li>
-        <li>김민구, 윤승호, 김유단, ”3점 기반의 무인항공기 2차원 경로계획,” 한국항공우주학회 추계학술발표회, 경주시, 경상북도, 2009년 11월.</li>
-        <li>윤승호, 김민구, 김현진, 김유단, ”무인항공기 그물망 자동착륙을 위한 나선형 궤적 설계,” 한국항공우주학회 춘계학술발표회, 평창군, 강원도, 2009년 4월.</li>
     </ol>
 
     <h2>Patent</h2>
