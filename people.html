@@ -4,32 +4,40 @@
     <meta charset="UTF-8">
     <title>People - AASL</title>
     <style>
-        /* 공통 스타일 적용 */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* 내비게이션 스타일 */
-        nav {
-            margin-bottom: 20px;
-            font-size: 1.1em;
+        /* 서브 페이지 헤더 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 40px;
         }
-        nav a {
+        .header-logo {
+            font-size: 1.5em;
+            font-weight: 900;
+            color: #222;
             text-decoration: none;
-            color: #444;
-            margin: 0 5px;
         }
-        nav a:hover {
-            text-decoration: underline;
-            color: #000;
+        nav { font-size: 1.05em; }
+        nav a { text-decoration: none; color: #444; margin-left: 20px; font-weight: 500; }
+        nav a:hover { text-decoration: underline; color: #000; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            nav { text-align: center; }
+            nav a { margin: 0 10px; }
         }
 
-        /* 제목 스타일 */
         h1 {
             font-size: 2.2em;
             margin-bottom: 40px;
@@ -37,16 +45,8 @@
             border-bottom: 1px solid #ddd;
             padding-bottom: 15px;
         }
-
-        /* People 페이지 링크 스타일 */
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 20px;
-            font-size: 1.3em;
-        }
+        ul { list-style-type: none; padding: 0; }
+        li { margin-bottom: 20px; font-size: 1.3em; }
         a.people-btn {
             display: inline-block;
             text-decoration: none;
@@ -70,15 +70,17 @@
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a> |
-        <a href="people.html">People</a> |
-        <a href="research.html">Research</a> |
-        <a href="publication.html">Publications</a> |
-        <a href="lectures.html">Lectures</a> |
-        <a href="board.html">Board</a>
-    </nav>
-    <hr style="border: 0; border-top: 1px solid #ccc;">
+    <header>
+        <a href="index.html" class="header-logo">AASL</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="people.html">People</a>
+            <a href="research.html">Research</a>
+            <a href="publication.html">Publications</a>
+            <a href="lectures.html">Lectures</a>
+            <a href="board.html">Board</a>
+        </nav>
+    </header>
 
     <h1>People</h1>
     
