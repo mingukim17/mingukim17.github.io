@@ -3,6 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>People - AASL</title>
+    <style>
+        /* 공통 스타일 적용 */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 내비게이션 스타일 */
+        nav {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        nav a {
+            text-decoration: none;
+            color: #444;
+            margin: 0 5px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        /* 제목 스타일 */
+        h1 {
+            font-size: 2.2em;
+            margin-bottom: 40px;
+            color: #222;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        /* People 페이지 링크 스타일 */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+        a.people-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 15px 30px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            transition: all 0.2s ease;
+            width: 200px;
+            text-align: center;
+        }
+        a.people-btn:hover {
+            background-color: #eaeaea;
+            border-color: #ccc;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -13,13 +78,13 @@
         <a href="lectures.html">Lectures</a> |
         <a href="board.html">Board</a>
     </nav>
-    <hr>
+    <hr style="border: 0; border-top: 1px solid #ccc;">
 
     <h1>People</h1>
     
     <ul>
-        <li><a href="faculty.html"><strong>Faculty</strong></a></li>
-        <li><a href="members.html"><strong>Members</strong></a></li>
+        <li><a href="faculty.html" class="people-btn">Faculty</a></li>
+        <li><a href="members.html" class="people-btn">Members</a></li>
     </ul>
 </body>
 </html>
