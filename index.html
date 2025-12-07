@@ -8,15 +8,51 @@
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
         }
-        nav { margin-bottom: 20px; font-size: 1.1em; }
-        nav a { text-decoration: none; color: #444; margin: 0 5px; }
-        nav a:hover { text-decoration: underline; color: #000; }
-        
-        h1 { font-size: 2.2em; margin-bottom: 10px; color: #222; }
+
+        /* 헤더 스타일 (중앙 타이틀, 우측 메뉴) */
+        header {
+            position: relative;
+            padding: 30px 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        .header-title {
+            font-size: 2.0em;
+            font-weight: 900;
+            color: #222;
+            margin: 0;
+            display: inline-block;
+        }
+        nav {
+            position: absolute;
+            right: 0;
+            bottom: 30px; /* 타이틀 라인에 맞춤 */
+            font-size: 1.05em;
+        }
+        nav a {
+            text-decoration: none;
+            color: #444;
+            margin-left: 15px;
+            font-weight: 500;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        /* 반응형 처리 (화면이 좁을 때) */
+        @media (max-width: 900px) {
+            header { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+            nav { position: static; margin-top: 10px; }
+            nav a { margin: 0 8px; }
+        }
+
+        /* 본문 스타일 */
         h2 {
             font-size: 1.5em; font-weight: 700; color: #222;
             margin-top: 40px; margin-bottom: 15px; padding-bottom: 10px;
@@ -25,22 +61,22 @@
         p { margin-bottom: 15px; }
         ul { padding-left: 20px; }
         li { margin-bottom: 8px; }
-        a { color: #1a0dab; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a.content-link { color: #1a0dab; text-decoration: none; }
+        a.content-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a> |
-        <a href="people.html">People</a> |
-        <a href="research.html">Research</a> |
-        <a href="publication.html">Publications</a> |
-        <a href="lectures.html">Lectures</a> |
-        <a href="board.html">Board</a>
-    </nav>
-    <hr style="border: 0; border-top: 1px solid #ccc;">
-
-    <h1>Aerospace and Autonomous Systems Laboratory (AASL)</h1>
+    <header>
+        <div class="header-title">Aerospace and Autonomous Systems Laboratory</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="people.html">People</a>
+            <a href="research.html">Research</a>
+            <a href="publication.html">Publications</a>
+            <a href="lectures.html">Lectures</a>
+            <a href="board.html">Board</a>
+        </nav>
+    </header>
 
     <h2>Notice</h2>
     <p>
@@ -50,7 +86,7 @@
         Positions for graduate students and undergraduate research students are available. Highly motivated students are welcome.
     </p>
     <p>
-        The research topics include, but not limited to, guidance, control, state estimation, and applications to aerospace systems and autonomous systems including UAVs, missiles, spacecraft, mobility robots, and wearable devices etc. Refer to <a href="research.html">Research</a> for details.
+        The research topics include, but not limited to, guidance, control, state estimation, and applications to aerospace systems and autonomous systems including UAVs, missiles, spacecraft, mobility robots, and wearable devices etc. Refer to <a href="research.html" class="content-link">Research</a> for details.
     </p>
     <p>
         If you are interested in, please feel free to contact Prof. Mingu Kim via e-mail with your relevant information as below.
