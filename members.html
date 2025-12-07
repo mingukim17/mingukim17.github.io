@@ -12,7 +12,7 @@
             margin: 0 auto;
             padding: 20px;
         }
-        /* 서브 페이지 헤더 */
+        /* 헤더 스타일 */
         header {
             display: flex;
             justify-content: space-between;
@@ -21,12 +21,9 @@
             border-bottom: 1px solid #ccc;
             margin-bottom: 40px;
         }
-        .header-logo {
-            font-size: 1.5em;
-            font-weight: 900;
-            color: #222;
-            text-decoration: none;
-        }
+        .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+        .logo-img { height: 50px; width: auto; }
+        .logo-text { font-size: 1.5em; font-weight: 900; color: #222; }
         nav { font-size: 1.05em; }
         nav a { text-decoration: none; color: #444; margin-left: 20px; font-weight: 500; }
         nav a:hover { text-decoration: underline; color: #000; }
@@ -64,7 +61,10 @@
 </head>
 <body>
     <header>
-        <a href="index.html" class="header-logo">AASL</a>
+        <a href="index.html" class="logo-link">
+            <img src="AASL 로고.png" alt="AASL Logo" class="logo-img">
+            <span class="logo-text">AASL</span>
+        </a>
         <nav>
             <a href="index.html">Home</a>
             <a href="people.html">People</a>
