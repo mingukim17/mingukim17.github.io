@@ -13,54 +13,22 @@
             margin: 0 auto;
             padding: 20px;
         }
-
-                /* 헤더 스타일 */
+        /* 헤더 스타일 */
         header {
             display: flex;
-            justify-content: space-between; /* 좌측 로고, 우측 메뉴 배분 */
-            align-items: center;            /* 수직 중앙 정렬 */
+            justify-content: space-between;
+            align-items: center;
             padding: 20px 0;
             border-bottom: 1px solid #ccc;
             margin-bottom: 40px;
         }
+        .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+        .logo-img { height: 50px; width: auto; }
+        .logo-text { font-size: 1.5em; font-weight: 900; color: #222; }
+        nav { font-size: 1.05em; }
+        nav a { text-decoration: none; color: #444; margin-left: 20px; font-weight: 500; }
+        nav a:hover { text-decoration: underline; color: #000; }
 
-        /* 로고 링크 컨테이너 (이미지 + 텍스트) */
-        .logo-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            gap: 12px; /* 이미지와 텍스트 사이 간격 */
-        }
-
-        /* 로고 이미지 스타일 */
-        .logo-img {
-            height: 50px; /* 헤더에 어울리는 높이 설정 */
-            width: auto;  /* 비율 유지 */
-        }
-
-        /* 로고 텍스트 스타일 */
-        .logo-text {
-            font-size: 1.5em;
-            font-weight: 900;
-            color: #222;
-        }
-
-        /* 내비게이션 스타일 */
-        nav {
-            font-size: 1.05em;
-        }
-        nav a {
-            text-decoration: none;
-            color: #444;
-            margin-left: 20px;
-            font-weight: 500;
-        }
-        nav a:hover {
-            text-decoration: underline;
-            color: #000;
-        }
-
-        /* 모바일 반응형 */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 15px; }
             nav { text-align: center; }
@@ -68,17 +36,57 @@
         }
 
         h1 { font-size: 2.2em; margin-bottom: 30px; color: #222; }
-        h2 {
-            font-size: 1.8em; font-weight: 700; color: #222;
-            margin-top: 50px; margin-bottom: 20px; padding-bottom: 10px;
-            border-bottom: 1px solid #ddd;
+        
+        /* TOC 스타일 */
+        .toc {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 40px;
+            border-radius: 8px;
         }
-        h3 {
-            font-size: 1.3em; font-weight: 600; color: #444;
-            margin-top: 30px; margin-bottom: 10px;
+        .toc ul { list-style-type: disc; padding-left: 20px; margin: 0; }
+        .toc li { margin-bottom: 8px; }
+        .toc a { text-decoration: none; color: #333; font-weight: 500; }
+        .toc a:hover { text-decoration: underline; color: #1a0dab; }
+
+        /* 게시물 스타일 */
+        .board-item {
+            margin-bottom: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
         }
-        ul { padding-left: 20px; margin-left: 10px; }
-        li { margin-bottom: 8px; }
+        .board-item h2 {
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #222;
+        }
+        
+        /* 페이지네이션 스타일 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            gap: 10px;
+        }
+        .pagination button {
+            padding: 8px 14px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1em;
+            color: #333;
+        }
+        .pagination button:hover:not(:disabled) { background-color: #f1f1f1; }
+        .pagination button.active {
+            background-color: #333;
+            color: #fff;
+            border-color: #333;
+            font-weight: bold;
+        }
+        .pagination button:disabled { color: #ccc; cursor: default; border-color: #eee; }
     </style>
 </head>
 <body>
@@ -87,7 +95,6 @@
             <img src="AASL 로고.png" alt="AASL Logo" class="logo-img">
             <span class="logo-text">AASL</span>
         </a>
-        
         <nav>
             <a href="index.html">Home</a>
             <a href="people.html">People</a>
