@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <title>Board - AASL</title>
     <style>
-        /* 링크 클릭 시 부드럽게 이동하도록 설정 */
-        html {
-            scroll-behavior: smooth;
-        }
-        /* 목차 스타일 */
+        /* 기본 스타일 */
+        html { scroll-behavior: smooth; }
+        body { font-family: sans-serif; margin: 20px; line-height: 1.6; }
+        
+        /* 내비게이션 스타일 */
+        nav { margin-bottom: 20px; }
+        nav a { text-decoration: none; color: #000; font-weight: bold; }
+        nav a:hover { text-decoration: underline; color: blue; }
+
+        /* 목차(TOC) 스타일 */
         .toc {
             background-color: #f9f9f9;
             padding: 15px 20px;
@@ -16,30 +21,47 @@
             margin-bottom: 40px;
             border-radius: 5px;
         }
-        .toc ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        .toc li {
-            margin-bottom: 8px;
-        }
-        .toc a {
-            text-decoration: none;
-            color: #333;
-        }
-        .toc a:hover {
-            text-decoration: underline;
-            color: #000;
-        }
-        /* 본문 아이템 스타일: 상단 메뉴에 가려지지 않게 여백 조정 */
+        .toc ul { list-style-type: disc; padding-left: 20px; margin: 0; }
+        .toc li { margin-bottom: 8px; }
+        .toc a { text-decoration: none; color: #333; }
+        .toc a:hover { text-decoration: underline; color: #000; }
+
+        /* 게시물 리스트 스타일 */
         .board-item {
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             padding-top: 20px;
             border-top: 1px solid #eee;
+            /* 페이지네이션 처리를 위해 초기에는 보이지 않게 처리할 수도 있으나, 
+               JS 로딩 전 깜빡임 방지를 위해 기본은 block으로 둡니다. */
         }
-        h2 {
-            margin-top: 0;
-            color: #222;
+        h2 { margin-top: 0; color: #222; }
+
+        /* 페이지네이션 버튼 스타일 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            gap: 10px;
+        }
+        .pagination button {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .pagination button:hover {
+            background-color: #eee;
+        }
+        .pagination button.active {
+            background-color: #333;
+            color: #fff;
+            border-color: #333;
+            font-weight: bold;
+        }
+        .pagination button:disabled {
+            color: #ccc;
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -70,49 +92,123 @@
         </ul>
     </div>
 
-    <div id="apisat-2025" class="board-item">
-        <h2>2025 Asia-Pacific International Symposium on Aerospace Technology (APISAT) 참석</h2>
-        <p>2025.10.27-2025.10.29, 서울에서 열린 APISAT 2025 참석 with Kyutae Park and Wonseok Jung</p>
+    <div id="board-list">
+        <div id="apisat-2025" class="board-item">
+            <h2>2025 Asia-Pacific International Symposium on Aerospace Technology (APISAT) 참석</h2>
+            <p>2025.10.27-2025.10.29, 서울에서 열린 APISAT 2025 참석 with Kyutae Park and Wonseok Jung</p>
+        </div>
+
+        <div id="aas-aiaa-2025-boston" class="board-item">
+            <h2>2025 AAS/AIAA Astrodynamics Specialist Conference 참석</h2>
+            <p>2025.08.10-2025.08.14, 미국 보스턴(USA, Massachusatts, Boston)에서 열린 AAS/AIAA Astrodynamics Specialist Conference 참석 with Prof. Youdan Kim</p>
+        </div>
+
+        <div id="eucass-2025" class="board-item">
+            <h2>2025 European Conference for Aero-Space Sciences (EUCASS) 참석</h2>
+            <p>2025.06.29-2025.07.04, 이탈리아 로마(Italy, Rome)에서 열린 EUCASS 2025 참석 with Prof. Jongho Park and Prof. Seokwon Lee</p>
+        </div>
+
+        <div id="aas-aiaa-2025-hawaii" class="board-item">
+            <h2>2025 AAS/AIAA Space Flight Mechanics Meeting 참석</h2>
+            <p>2025.01.19-2025.01.23, 미국 하와이 카우아이(USA, Hawaii, Kauai)에서 열린 AAS/AIAA Space Flight Mechanics Meeting 참석</p>
+        </div>
+
+        <div id="apisat-2024" class="board-item">
+            <h2>2024 Asia-Pacific International Symposium on Aerospace Technology (APISAT) 참석</h2>
+            <p>2024.10.28-2024.10.30, 호주 애들레이드(Australia, Adelaide)에서 열린 APISAT 2024 참석</p>
+        </div>
+
+        <div id="ecc-2022" class="board-item">
+            <h2>2022 European Control Conference (ECC) 참석</h2>
+            <p>2022.07.12-2022.07.15, 영국 런던(England, London)에서 열린 ECC 2022 참석</p>
+        </div>
+
+        <div id="ksas-apisat-2021" class="board-item">
+            <h2>2021 KSAS Autumn Conference 및 2021 APISAT 참석</h2>
+            <p>2021.11.15-2021.11.19, 제주도 제주시에서 열린 한국항공우주학회 추계학술대회 2021 및 APISAT 2021 참석 with Seung Lee, Soyul Jeon, and Suyeon Kim</p>
+        </div>
+
+        <div id="ksas-2018" class="board-item">
+            <h2>2018 KSAS Autumn Conference 참석</h2>
+            <p>2018.11.28-2018.11.30, 제주도 제주시에서 열린 한국항공우주학회 추계학술대회 2018 참석</p>
+        </div>
+
+        <div id="med-2018" class="board-item">
+            <h2>2018 Mediterranean Conference on Control and Automation (MED) 참석</h2>
+            <p>2018.06.19-2018.6.22, 크로아티아 자다르(Croatia, Zadar)에서 열린 MED 2018 참석</p>
+        </div>
     </div>
 
-    <div id="aas-aiaa-2025-boston" class="board-item">
-        <h2>2025 AAS/AIAA Astrodynamics Specialist Conference 참석</h2>
-        <p>2025.08.10-2025.08.14, 미국 보스턴(USA, Massachusatts, Boston)에서 열린 AAS/AIAA Astrodynamics Specialist Conference 참석 with Prof. Youdan Kim</p>
-    </div>
+    <div id="pagination" class="pagination"></div>
 
-    <div id="eucass-2025" class="board-item">
-        <h2>2025 European Conference for Aero-Space Sciences (EUCASS) 참석</h2>
-        <p>2025.06.29-2025.07.04, 이탈리아 로마(Italy, Rome)에서 열린 EUCASS 2025 참석 with Prof. Jongho Park and Prof. Seokwon Lee</p>
-    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const listItems = document.querySelectorAll(".board-item");
+            const paginationContainer = document.getElementById("pagination");
+            
+            const itemsPerPage = 10; // 페이지당 표시할 게시물 수
+            const totalItems = listItems.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            
+            let currentPage = 1;
 
-    <div id="aas-aiaa-2025-hawaii" class="board-item">
-        <h2>2025 AAS/AIAA Space Flight Mechanics Meeting 참석</h2>
-        <p>2025.01.19-2025.01.23, 미국 하와이 카우아이(USA, Hawaii, Kauai)에서 열린 AAS/AIAA Space Flight Mechanics Meeting 참석</p>
-    </div>
+            function showPage(page) {
+                if (page < 1 || page > totalPages) return;
+                currentPage = page;
 
-    <div id="apisat-2024" class="board-item">
-        <h2>2024 Asia-Pacific International Symposium on Aerospace Technology (APISAT) 참석</h2>
-        <p>2024.10.28-2024.10.30, 호주 애들레이드(Australia, Adelaide)에서 열린 APISAT 2024 참석</p>
-    </div>
+                // 시작 인덱스와 끝 인덱스 계산
+                const start = (page - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
 
-    <div id="ecc-2022" class="board-item">
-        <h2>2022 European Control Conference (ECC) 참석</h2>
-        <p>2022.07.12-2022.07.15, 영국 런던(England, London)에서 열린 ECC 2022 참석</p>
-    </div>
+                // 모든 아이템 숨기기
+                listItems.forEach((item, index) => {
+                    item.style.display = "none";
+                    // 현재 페이지 범위에 있는 아이템만 표시
+                    if (index >= start && index < end) {
+                        item.style.display = "block";
+                    }
+                });
 
-    <div id="ksas-apisat-2021" class="board-item">
-        <h2>2021 KSAS Autumn Conference 및 2021 APISAT 참석</h2>
-        <p>2021.11.15-2021.11.19, 제주도 제주시에서 열린 한국항공우주학회 추계학술대회 2021 및 APISAT 2021 참석 with Seung Lee, Soyul Jeon, and Suyeon Kim</p>
-    </div>
+                renderPaginationButtons();
+                
+                // 페이지 이동 시 상단 목차 아래로 스크롤 이동 (선택 사항)
+                // document.querySelector('.toc').scrollIntoView(); 
+            }
 
-    <div id="ksas-2018" class="board-item">
-        <h2>2018 KSAS Autumn Conference 참석</h2>
-        <p>2018.11.28-2018.11.30, 제주도 제주시에서 열린 한국항공우주학회 추계학술대회 2018 참석</p>
-    </div>
+            function renderPaginationButtons() {
+                paginationContainer.innerHTML = "";
 
-    <div id="med-2018" class="board-item">
-        <h2>2018 Mediterranean Conference on Control and Automation (MED) 참석</h2>
-        <p>2018.06.19-2018.6.22, 크로아티아 자다르(Croatia, Zadar)에서 열린 MED 2018 참석</p>
-    </div>
+                // 이전 버튼
+                const prevBtn = document.createElement("button");
+                prevBtn.textContent = "<";
+                prevBtn.disabled = currentPage === 1;
+                prevBtn.onclick = () => showPage(currentPage - 1);
+                paginationContainer.appendChild(prevBtn);
+
+                // 페이지 번호 버튼
+                for (let i = 1; i <= totalPages; i++) {
+                    const btn = document.createElement("button");
+                    btn.textContent = i;
+                    if (i === currentPage) {
+                        btn.classList.add("active");
+                    }
+                    btn.onclick = () => showPage(i);
+                    paginationContainer.appendChild(btn);
+                }
+
+                // 다음 버튼
+                const nextBtn = document.createElement("button");
+                nextBtn.textContent = ">";
+                nextBtn.disabled = currentPage === totalPages;
+                nextBtn.onclick = () => showPage(currentPage + 1);
+                paginationContainer.appendChild(nextBtn);
+            }
+
+            // 초기 페이지 로드
+            if (totalItems > 0) {
+                showPage(1);
+            }
+        });
+    </script>
 </body>
 </html>
