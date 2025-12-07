@@ -13,25 +13,26 @@
             padding: 20px;
         }
 
-        /* 헤더 스타일 (중앙 타이틀, 우측 메뉴) */
+        /* [수정됨] 헤더 스타일: 겹침 방지 및 레이아웃 개선 */
         header {
-            position: relative;
+            display: flex;
+            flex-direction: column; /* 수직 정렬 (제목 위, 메뉴 아래) */
+            align-items: center;    /* 수평 중앙 정렬 */
             padding: 30px 0;
             border-bottom: 1px solid #ccc;
             margin-bottom: 40px;
-            text-align: center;
         }
         .header-title {
             font-size: 2.0em;
             font-weight: 900;
             color: #222;
-            margin: 0;
-            display: inline-block;
+            text-align: center;
+            margin-bottom: 0;
         }
         nav {
-            position: absolute;
-            right: 0;
-            bottom: 30px; /* 타이틀 라인에 맞춤 */
+            width: 100%;            /* 전체 너비 사용 */
+            text-align: right;      /* 메뉴 우측 정렬 */
+            margin-top: 20px;       /* 제목과의 간격 확보 (겹침 방지) */
             font-size: 1.05em;
         }
         nav a {
@@ -45,10 +46,9 @@
             color: #000;
         }
 
-        /* 반응형 처리 (화면이 좁을 때) */
-        @media (max-width: 900px) {
-            header { display: flex; flex-direction: column; align-items: center; gap: 15px; }
-            nav { position: static; margin-top: 10px; }
+        /* 모바일 반응형: 화면이 좁을 땐 메뉴도 중앙 정렬 */
+        @media (max-width: 768px) {
+            nav { text-align: center; margin-top: 15px; }
             nav a { margin: 0 8px; }
         }
 
