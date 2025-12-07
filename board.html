@@ -4,39 +4,50 @@
     <meta charset="UTF-8">
     <title>Board - AASL</title>
     <style>
-        /* 기본 스타일 */
         html { scroll-behavior: smooth; }
-        body { font-family: sans-serif; margin: 20px; line-height: 1.6; }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        nav { margin-bottom: 20px; font-size: 1.1em; }
+        nav a { text-decoration: none; color: #444; margin: 0 5px; }
+        nav a:hover { text-decoration: underline; color: #000; }
         
-        /* 내비게이션 스타일 */
-        nav { margin-bottom: 20px; }
-        nav a { text-decoration: none; color: #000; font-weight: bold; }
-        nav a:hover { text-decoration: underline; color: blue; }
-
-        /* 목차(TOC) 스타일 */
+        h1 { font-size: 2.2em; margin-bottom: 30px; color: #222; }
+        
+        /* TOC 스타일 */
         .toc {
             background-color: #f9f9f9;
-            padding: 15px 20px;
-            border: 1px solid #ddd;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
             margin-bottom: 40px;
-            border-radius: 5px;
+            border-radius: 8px;
         }
         .toc ul { list-style-type: disc; padding-left: 20px; margin: 0; }
         .toc li { margin-bottom: 8px; }
-        .toc a { text-decoration: none; color: #333; }
-        .toc a:hover { text-decoration: underline; color: #000; }
+        .toc a { text-decoration: none; color: #333; font-weight: 500; }
+        .toc a:hover { text-decoration: underline; color: #1a0dab; }
 
-        /* 게시물 리스트 스타일 */
+        /* 게시물 스타일 */
         .board-item {
             margin-bottom: 40px;
             padding-top: 20px;
             border-top: 1px solid #eee;
-            /* 페이지네이션 처리를 위해 초기에는 보이지 않게 처리할 수도 있으나, 
-               JS 로딩 전 깜빡임 방지를 위해 기본은 block으로 둡니다. */
         }
-        h2 { margin-top: 0; color: #222; }
-
-        /* 페이지네이션 버튼 스타일 */
+        .board-item h2 {
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #222;
+            border: none;
+            padding-bottom: 0;
+        }
+        
+        /* 페이지네이션 스타일 */
         .pagination {
             display: flex;
             justify-content: center;
@@ -44,14 +55,16 @@
             gap: 10px;
         }
         .pagination button {
-            padding: 8px 12px;
-            border: 1px solid #ccc;
+            padding: 8px 14px;
+            border: 1px solid #ddd;
             background-color: #fff;
             cursor: pointer;
             border-radius: 4px;
+            font-size: 1em;
+            color: #333;
         }
-        .pagination button:hover {
-            background-color: #eee;
+        .pagination button:hover:not(:disabled) {
+            background-color: #f1f1f1;
         }
         .pagination button.active {
             background-color: #333;
@@ -61,7 +74,8 @@
         }
         .pagination button:disabled {
             color: #ccc;
-            cursor: not-allowed;
+            cursor: default;
+            border-color: #eee;
         }
     </style>
 </head>
@@ -74,7 +88,7 @@
         <a href="lectures.html">Lectures</a> |
         <a href="board.html">Board</a>
     </nav>
-    <hr>
+    <hr style="border: 0; border-top: 1px solid #ccc;">
 
     <h1>Board</h1>
 
@@ -146,7 +160,7 @@
             const listItems = document.querySelectorAll(".board-item");
             const paginationContainer = document.getElementById("pagination");
             
-            const itemsPerPage = 10; // 페이지당 표시할 게시물 수
+            const itemsPerPage = 10;
             const totalItems = listItems.length;
             const totalPages = Math.ceil(totalItems / itemsPerPage);
             
@@ -156,47 +170,38 @@
                 if (page < 1 || page > totalPages) return;
                 currentPage = page;
 
-                // 시작 인덱스와 끝 인덱스 계산
                 const start = (page - 1) * itemsPerPage;
                 const end = start + itemsPerPage;
 
-                // 모든 아이템 숨기기
                 listItems.forEach((item, index) => {
                     item.style.display = "none";
-                    // 현재 페이지 범위에 있는 아이템만 표시
                     if (index >= start && index < end) {
                         item.style.display = "block";
                     }
                 });
-
                 renderPaginationButtons();
-                
-                // 페이지 이동 시 상단 목차 아래로 스크롤 이동 (선택 사항)
-                // document.querySelector('.toc').scrollIntoView(); 
             }
 
             function renderPaginationButtons() {
                 paginationContainer.innerHTML = "";
-
-                // 이전 버튼
+                
+                // Prev Button
                 const prevBtn = document.createElement("button");
                 prevBtn.textContent = "<";
                 prevBtn.disabled = currentPage === 1;
                 prevBtn.onclick = () => showPage(currentPage - 1);
                 paginationContainer.appendChild(prevBtn);
 
-                // 페이지 번호 버튼
+                // Page Numbers
                 for (let i = 1; i <= totalPages; i++) {
                     const btn = document.createElement("button");
                     btn.textContent = i;
-                    if (i === currentPage) {
-                        btn.classList.add("active");
-                    }
+                    if (i === currentPage) btn.classList.add("active");
                     btn.onclick = () => showPage(i);
                     paginationContainer.appendChild(btn);
                 }
 
-                // 다음 버튼
+                // Next Button
                 const nextBtn = document.createElement("button");
                 nextBtn.textContent = ">";
                 nextBtn.disabled = currentPage === totalPages;
@@ -204,7 +209,6 @@
                 paginationContainer.appendChild(nextBtn);
             }
 
-            // 초기 페이지 로드
             if (totalItems > 0) {
                 showPage(1);
             }
