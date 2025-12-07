@@ -3,6 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Faculty - AASL</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        nav { margin-bottom: 20px; font-size: 1.1em; }
+        nav a { text-decoration: none; color: #444; margin: 0 5px; }
+        nav a:hover { text-decoration: underline; color: #000; }
+
+        h1 { font-size: 2.2em; margin-bottom: 30px; color: #222; }
+        h2 {
+            font-size: 1.8em; font-weight: 700; color: #222;
+            margin-top: 40px; margin-bottom: 10px;
+            border-bottom: 2px solid #333; /* 교수님 이름 강조 */
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        h3 {
+            font-size: 1.4em; font-weight: 600; color: #444;
+            margin-top: 40px; margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        p { margin-bottom: 20px; font-size: 1.1em; }
+        ul { padding-left: 20px; margin-left: 10px; }
+        li { margin-bottom: 15px; }
+        strong { color: #000; } /* 강조 텍스트 색상 */
+        
+        .back-link {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+        .back-link:hover { color: #333; }
+    </style>
 </head>
 <body>
     <nav>
@@ -13,8 +53,9 @@
         <a href="lectures.html">Lectures</a> |
         <a href="board.html">Board</a>
     </nav>
-    <hr>
-    <p><a href="people.html"><strong>&lt; Back to People</strong></a></p>
+    <hr style="border: 0; border-top: 1px solid #ccc;">
+    
+    <a href="people.html" class="back-link">&lt; Back to People</a>
 
     <h1>Faculty</h1>
 
@@ -23,8 +64,9 @@
         Associate Professor,<br>
         Division of Mechanical and Electronics Engineering,<br>
         Hansung University<br>
-        Email : mingukim@hansung.ac.kr
+        Email : <a href="mailto:mingukim@hansung.ac.kr" style="color:#1a0dab;">mingukim@hansung.ac.kr</a>
     </p>
+
     <h3>Education</h3>
     <ul>
         <li>
