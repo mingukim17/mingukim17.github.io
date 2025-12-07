@@ -3,6 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>Publications - AASL</title>
+    <style>
+        /* 구글 사이트와 유사한 깔끔한 스타일 적용 */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* 가독성 좋은 산세리프 폰트 */
+            line-height: 1.6;        /* 줄 간격 확보 */
+            color: #333;             /* 눈이 편안한 진한 회색 */
+            max-width: 1000px;       /* 너무 넓게 퍼지지 않도록 폭 제한 */
+            margin: 0 auto;          /* 중앙 정렬 */
+            padding: 20px;
+        }
+
+        /* 내비게이션 스타일 */
+        nav {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        nav a {
+            text-decoration: none;
+            color: #444;
+            margin: 0 5px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        /* 소제목 스타일 (Google Sites 느낌) */
+        h2 {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #222;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd; /* 하단 구분선 추가 */
+        }
+
+        /* 리스트 스타일 */
+        ol {
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+        li {
+            margin-bottom: 15px; /* 항목 간 간격 넓힘 */
+            padding-left: 5px;
+            word-break: keep-all; /* 단어 단위 줄바꿈 */
+        }
+
+        /* 링크 스타일 */
+        a {
+            color: #1a0dab; /* 구글 링크 색상 */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 학술지명 이탤릭체 클래스 */
+        .journal {
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -13,38 +75,38 @@
         <a href="lectures.html">Lectures</a> |
         <a href="board.html">Board</a>
     </nav>
-    <hr>
+    <hr style="border: 0; border-top: 1px solid #ccc;">
 
     <h1>Publications</h1>
 
     <h2>International Journals</h2>
     <ol>
-        <li>Jongho Park, and Mingu Kim, "Data-Driven Regulator of Rotary-Wing UAV Utilizing Neural Ordinary Differential Equations," <i>International Journal of Aeronautical and Space Sciences</i>, Accepted for publication. (https://doi.org/10.1007/s42405-025-01007-4)</li>
-        <li>Mingu Kim, Katie L Mills, Bit Kim, Chulwoo Park, Jinsung Yoon, Tom Parkinson, and Johsan Billingham, "A Quantitative Method for Evaluating GNSS Signal Disruption in Sports Stadiums," <i>Sports Engineering</i>, Vol. 28, 2025, 49. (https://doi.org/10.1007/s12283-025-00530-7)</li>
-        <li>Seokwon Lee, and Mingu Kim, "Reachability-Based Rendezvous Guidance for Autonomous Refueling of Unmanned Aerial Systems," <i>Control Engineering Practice</i>, Vol. 164, 2025, 106449. (https://doi.org/10.1016/j.conengprac.2025.106449)</li>
-        <li>Mingu Kim, Bit Kim, Chulwoo Park, and Jinsung Yoon, "Implementation and Performance Analysis of RTK-GNSS in Wearable Devices for Athletes in Harsh Environments," <i>Electronics Letters</i>, No. 61, 2025, e70289. (https://doi:10.1049/ell2.70289)</li>
-        <li>Suwon Lee, Mingu Kim, and Raziye Tekin, "Impact Time Control Guidance using Output Trajectory Shaping Method," <i>Journal of Guidance, Control, and Dynamics</i>, Vol. 48, No. 4, 2025, pp. 961-967. (https://doi.org/10.2514/1.G008834)</li>
-        <li>Mingu Kim, Chulwoo Park, and Jinsung Yoon, "The Design of GNSS/IMU Loosely-Coupled Integration Filter for Wearable EPTS of Football Players," <i>Sensors</i>, Vol. 23, No. 4, 2023, 1749. (https://doi.org/10.3390/s23041749)</li>
-        <li>Seokwon Lee, and Mingu Kim, "Analysis of Rendezvous Guidance Laws for Autonomous Aerial Refueling for Non-maneuvering and Identical Speed Targets," <i>Aerospace Science and Technology</i>, Vol. 121, 2022, 107359. (https://doi.org/10.1016/j.ast.2022.107359)</li>
-        <li>Mingu Kim, "Error Dynamics-Based Guidance Law for Target Observation using Multiple UAVs with Phase Angle Constraints via Evolutionary Algorithms," <i>Journal of Control, Automation, and Electrical Systems</i>, Vol. 32, No. 6, 2021, pp.1510-1520. (https://doi.org/10.1007/s40313-021-00790-1)</li>
-        <li>Yujung Yoon, Mingu Kim, and Youdan Kim, "Three-dimensional Path Planning for Aerial Refueling between Tanker and Multiple UAVs," <i>International Journal of Aeronautical and Space Sciences</i>, Vol. 18, No. 4, 2018, pp.1027-1040. (https://doi.org/10.1007/s42405-018-0098-z)</li>
-        <li>Shaoming He, Mingu Kim, Tao Song, and Defu Lin, “Three-Dimensional Salvo Attack Guidance Considering Communication Delay,” <i>Aerospace Science and Technology</i>, Vol. 73, 2018, pp. 1-9. (https://doi.org/10.1016/j.ast.2017.11.019)</li>
-        <li>Yunjoong Kim, Mingu Kim, Bumku Han, Youdan Kim, and Hohyun Shin, “Optimal Design of an SAR Satellite Constellation Considering the Revisit Time Using a Genetic Algorithm,” <i>International Journal of Aeronautical and Space Sciences</i>, Vol. 18, No. 2, 2017, pp. 334-343. (https://doi.org/10.5139/IJASS.2017.18.2.334)</li>
-        <li>Mingu Kim, Bokyung Jung, Bumku Han, Sangchul Lee, and Youdan Kim, “Lyapunov-Based Impact Time Control Guidance Laws Against Stationary Targets,” <i>IEEE Transactions on Aerospace and Electronic Systems</i>, Vol. 51, No. 2, 2015, pp. 1111-1122. (https://doi.org/10.1109/TAES.2014.130717)</li>
-        <li>Mingu Kim, and Youdan Kim, “Turning Direction Determination using Error Dynamics-Based Guidance Law for Stationary Target Observation,” <i>Transactions of the Japan Society for Aeronautical and Space Sciences</i>, Vol. 57, No. 2, 2014, pp. 61-68. (https://doi.org/10.2322/tjsass.57.61)</li>
-        <li>H. Jin Kim, Mingu Kim, Hyon Lim, Chulwoo Park, Seungho Yoon, Daewon Lee, Hyunjin Choi, Gyeongtaek Oh, Jongho Park, and Youdan Kim, “Fully-Autonomous Vision-based Net-Recovery Landing System for a Fixed-Wing UAV,” <i>IEEE/ASME Transactions on Mechatronics</i>, Vol. 18, No.4, 2013, pp.1320-1333. (https://doi.org/10.1109/TMECH.2013.2247411)</li>
-        <li>Mingu Kim, and Youdan Kim, “Multiple UAVs Nonlinear Guidance Laws for Stationary Target Observation with Waypoint Incidence Angle Constraint,” <i>International Journal of Aeronautical and Space Sciences</i>, Vol. 14, No. 1, 2013, pp. 67-74. (https://doi.org/10.5139/IJASS.2013.14.1.67)</li>
+        <li>Jongho Park, and Mingu Kim, "Data-Driven Regulator of Rotary-Wing UAV Utilizing Neural Ordinary Differential Equations," <span class="journal">International Journal of Aeronautical and Space Sciences</span>, Accepted for publication. (https://doi.org/10.1007/s42405-025-01007-4)</li>
+        <li>Mingu Kim, Katie L Mills, Bit Kim, Chulwoo Park, Jinsung Yoon, Tom Parkinson, and Johsan Billingham, "A Quantitative Method for Evaluating GNSS Signal Disruption in Sports Stadiums," <span class="journal">Sports Engineering</span>, Vol. 28, 2025, 49. (https://doi.org/10.1007/s12283-025-00530-7)</li>
+        <li>Seokwon Lee, and Mingu Kim, "Reachability-Based Rendezvous Guidance for Autonomous Refueling of Unmanned Aerial Systems," <span class="journal">Control Engineering Practice</span>, Vol. 164, 2025, 106449. (https://doi.org/10.1016/j.conengprac.2025.106449)</li>
+        <li>Mingu Kim, Bit Kim, Chulwoo Park, and Jinsung Yoon, "Implementation and Performance Analysis of RTK-GNSS in Wearable Devices for Athletes in Harsh Environments," <span class="journal">Electronics Letters</span>, No. 61, 2025, e70289. (https://doi:10.1049/ell2.70289)</li>
+        <li>Suwon Lee, Mingu Kim, and Raziye Tekin, "Impact Time Control Guidance using Output Trajectory Shaping Method," <span class="journal">Journal of Guidance, Control, and Dynamics</span>, Vol. 48, No. 4, 2025, pp. 961-967. (https://doi.org/10.2514/1.G008834)</li>
+        <li>Mingu Kim, Chulwoo Park, and Jinsung Yoon, "The Design of GNSS/IMU Loosely-Coupled Integration Filter for Wearable EPTS of Football Players," <span class="journal">Sensors</span>, Vol. 23, No. 4, 2023, 1749. (https://doi.org/10.3390/s23041749)</li>
+        <li>Seokwon Lee, and Mingu Kim, "Analysis of Rendezvous Guidance Laws for Autonomous Aerial Refueling for Non-maneuvering and Identical Speed Targets," <span class="journal">Aerospace Science and Technology</span>, Vol. 121, 2022, 107359. (https://doi.org/10.1016/j.ast.2022.107359)</li>
+        <li>Mingu Kim, "Error Dynamics-Based Guidance Law for Target Observation using Multiple UAVs with Phase Angle Constraints via Evolutionary Algorithms," <span class="journal">Journal of Control, Automation, and Electrical Systems</span>, Vol. 32, No. 6, 2021, pp.1510-1520. (https://doi.org/10.1007/s40313-021-00790-1)</li>
+        <li>Yujung Yoon, Mingu Kim, and Youdan Kim, "Three-dimensional Path Planning for Aerial Refueling between Tanker and Multiple UAVs," <span class="journal">International Journal of Aeronautical and Space Sciences</span>, Vol. 18, No. 4, 2018, pp.1027-1040. (https://doi.org/10.1007/s42405-018-0098-z)</li>
+        <li>Shaoming He, Mingu Kim, Tao Song, and Defu Lin, “Three-Dimensional Salvo Attack Guidance Considering Communication Delay,” <span class="journal">Aerospace Science and Technology</span>, Vol. 73, 2018, pp. 1-9. (https://doi.org/10.1016/j.ast.2017.11.019)</li>
+        <li>Yunjoong Kim, Mingu Kim, Bumku Han, Youdan Kim, and Hohyun Shin, “Optimal Design of an SAR Satellite Constellation Considering the Revisit Time Using a Genetic Algorithm,” <span class="journal">International Journal of Aeronautical and Space Sciences</span>, Vol. 18, No. 2, 2017, pp. 334-343. (https://doi.org/10.5139/IJASS.2017.18.2.334)</li>
+        <li>Mingu Kim, Bokyung Jung, Bumku Han, Sangchul Lee, and Youdan Kim, “Lyapunov-Based Impact Time Control Guidance Laws Against Stationary Targets,” <span class="journal">IEEE Transactions on Aerospace and Electronic Systems</span>, Vol. 51, No. 2, 2015, pp. 1111-1122. (https://doi.org/10.1109/TAES.2014.130717)</li>
+        <li>Mingu Kim, and Youdan Kim, “Turning Direction Determination using Error Dynamics-Based Guidance Law for Stationary Target Observation,” <span class="journal">Transactions of the Japan Society for Aeronautical and Space Sciences</span>, Vol. 57, No. 2, 2014, pp. 61-68. (https://doi.org/10.2322/tjsass.57.61)</li>
+        <li>H. Jin Kim, Mingu Kim, Hyon Lim, Chulwoo Park, Seungho Yoon, Daewon Lee, Hyunjin Choi, Gyeongtaek Oh, Jongho Park, and Youdan Kim, “Fully-Autonomous Vision-based Net-Recovery Landing System for a Fixed-Wing UAV,” <span class="journal">IEEE/ASME Transactions on Mechatronics</span>, Vol. 18, No.4, 2013, pp.1320-1333. (https://doi.org/10.1109/TMECH.2013.2247411)</li>
+        <li>Mingu Kim, and Youdan Kim, “Multiple UAVs Nonlinear Guidance Laws for Stationary Target Observation with Waypoint Incidence Angle Constraint,” <span class="journal">International Journal of Aeronautical and Space Sciences</span>, Vol. 14, No. 1, 2013, pp. 67-74. (https://doi.org/10.5139/IJASS.2013.14.1.67)</li>
     </ol>
 
     <h2>Domestic Journals (in Korean)</h2>
     <ol>
-        <li>조한승, 이현석, 최승애, 김민구, "2인 탑승 방지를 위한 전동킥보드 데크 설계," <i>기술과 교육 - 대한기계학회논문집 C</i>, 제13권, 제1호, 2025, pp. 9-20. (http://dx.doi.org/10.3795/KSME-C.2025.13.1.009)</li>
-        <li>손주호, 박지안, 백민기, 김민구, "무한궤도와 압전센서를 이용한 자동 회전 벤치 설계 및 제작," <i>대한기계학회논문집 A</i>, 제48권, 제4호, 2024, pp. 243-253. (https://doi.org/10.3795/KSME-A.2024.48.4.243)</li>
-        <li>전소율, 서지윤, 황윤규, 김민구, "험지 탐색을 위한 원격 제어 UGV '삵' 설계 및 제작," <i>대한기계학회논문집 A</i>, 제46권, 제12호, 2022, pp. 1115-1125. (https://doi.org/10.3795/KSME-A.2022.46.12.1115)</li>
-        <li>전소율, 염혜경, 최민범, 김민구, "상보 필터를 이용한 사용자 상체 기울기 인식 전동 휠체어 설계 및 제작," <i>제어로봇시스템학회논문지</i>, 제28권, 제1호, 2022, pp. 6-12. (https://doi.org/10.5302/J.ICROS.2022.21.0155)</li>
-        <li>김민구, "르야프노프 기반 가변 추적유도법칙을 이용한 무인항공기 랑데부 기동 기법," <i>한국항공우주학회지</i>, 제48권, 제10호, 2020, pp. 765-772. (https://doi.org/10.5139/JKSAS.2020.48.10.765)</li>
-        <li>김민구, "충돌시간 제어 유도법칙에 대한 잔여비행시간 추정의 영향," <i>한국항공우주학회지</i>, 제47권, 제8호, 2019, pp. 558-565. (https://doi.org/10.5139/JKSAS.2019.47.8.558)</li>
-        <li>서중보, 김민구, "저궤도위성용 제어모멘트자이로 설계 요소 분석 및 동향," <i>제어로봇시스템학회논문지</i>, 제25권, 제4호, 2019, pp. 295-302. (https://doi.org/10.5302/J.ICROS.2019.18.0200)</li>
+        <li>조한승, 이현석, 최승애, 김민구, "2인 탑승 방지를 위한 전동킥보드 데크 설계," <span class="journal">기술과 교육 - 대한기계학회논문집 C</span>, 제13권, 제1호, 2025, pp. 9-20. (http://dx.doi.org/10.3795/KSME-C.2025.13.1.009)</li>
+        <li>손주호, 박지안, 백민기, 김민구, "무한궤도와 압전센서를 이용한 자동 회전 벤치 설계 및 제작," <span class="journal">대한기계학회논문집 A</span>, 제48권, 제4호, 2024, pp. 243-253. (https://doi.org/10.3795/KSME-A.2024.48.4.243)</li>
+        <li>전소율, 서지윤, 황윤규, 김민구, "험지 탐색을 위한 원격 제어 UGV '삵' 설계 및 제작," <span class="journal">대한기계학회논문집 A</span>, 제46권, 제12호, 2022, pp. 1115-1125. (https://doi.org/10.3795/KSME-A.2022.46.12.1115)</li>
+        <li>전소율, 염혜경, 최민범, 김민구, "상보 필터를 이용한 사용자 상체 기울기 인식 전동 휠체어 설계 및 제작," <span class="journal">제어로봇시스템학회논문지</span>, 제28권, 제1호, 2022, pp. 6-12. (https://doi.org/10.5302/J.ICROS.2022.21.0155)</li>
+        <li>김민구, "르야프노프 기반 가변 추적유도법칙을 이용한 무인항공기 랑데부 기동 기법," <span class="journal">한국항공우주학회지</span>, 제48권, 제10호, 2020, pp. 765-772. (https://doi.org/10.5139/JKSAS.2020.48.10.765)</li>
+        <li>김민구, "충돌시간 제어 유도법칙에 대한 잔여비행시간 추정의 영향," <span class="journal">한국항공우주학회지</span>, 제47권, 제8호, 2019, pp. 558-565. (https://doi.org/10.5139/JKSAS.2019.47.8.558)</li>
+        <li>서중보, 김민구, "저궤도위성용 제어모멘트자이로 설계 요소 분석 및 동향," <span class="journal">제어로봇시스템학회논문지</span>, 제25권, 제4호, 2019, pp. 295-302. (https://doi.org/10.5302/J.ICROS.2019.18.0200)</li>
     </ol>
 
     <h2>International Conferences</h2>
