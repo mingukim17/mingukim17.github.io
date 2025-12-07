@@ -3,18 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>2018 Lectures - AASL</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 서브 페이지 헤더 스타일 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 40px;
+        }
+        .header-logo {
+            font-size: 1.5em;
+            font-weight: 900;
+            color: #222;
+            text-decoration: none;
+        }
+        nav { font-size: 1.05em; }
+        nav a { text-decoration: none; color: #444; margin-left: 20px; font-weight: 500; }
+        nav a:hover { text-decoration: underline; color: #000; }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            nav { text-align: center; }
+            nav a { margin: 0 10px; }
+        }
+
+        h1 { font-size: 2.2em; margin-bottom: 30px; color: #222; }
+        h2 {
+            font-size: 1.8em; font-weight: 700; color: #222;
+            margin-top: 50px; margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        ul { padding-left: 20px; margin-left: 10px; }
+        li { margin-bottom: 15px; }
+        strong { color: #000; font-weight: 600; }
+
+        /* 뒤로가기 링크 스타일 */
+        .back-link {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 10px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .back-link:hover { color: #333; text-decoration: underline; }
+    </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a> |
-        <a href="people.html">People</a> |
-        <a href="research.html">Research</a> |
-        <a href="publication.html">Publications</a> |
-        <a href="lectures.html">Lectures</a> |
-        <a href="board.html">Board</a>
-    </nav>
-    <hr>
-    <p><a href="lectures.html"><strong>&lt; Back to Lectures</strong></a></p>
+    <header>
+        <a href="index.html" class="header-logo">AASL</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="people.html">People</a>
+            <a href="research.html">Research</a>
+            <a href="publication.html">Publications</a>
+            <a href="lectures.html">Lectures</a>
+            <a href="board.html">Board</a>
+        </nav>
+    </header>
+
+    <a href="lectures.html" class="back-link">&lt; Back to Lectures</a>
 
     <h1>Lectures in 2018</h1>
 
