@@ -3,6 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Board - AASL</title>
+    <style>
+        /* 링크 클릭 시 부드럽게 이동하도록 설정 */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* 목차 스타일 */
+        .toc {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 40px;
+            border-radius: 5px;
+        }
+        .toc ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #333;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+        /* 본문 아이템 스타일: 상단 메뉴에 가려지지 않게 여백 조정 */
+        .board-item {
+            margin-bottom: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        h2 {
+            margin-top: 0;
+            color: #222;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -17,49 +56,63 @@
 
     <h1>Board</h1>
 
-    <div class="board-item">
+    <div class="toc">
+        <ul>
+            <li><a href="#apisat-2025">2025 Asia-Pacific International Symposium on Aerospace Technology (APISAT) 참석</a></li>
+            <li><a href="#aas-aiaa-2025-boston">2025 AAS/AIAA Astrodynamics Specialist Conference 참석</a></li>
+            <li><a href="#eucass-2025">2025 European Conference for Aero-Space Sciences (EUCASS) 참석</a></li>
+            <li><a href="#aas-aiaa-2025-hawaii">2025 AAS/AIAA Space Flight Mechanics Meeting 참석</a></li>
+            <li><a href="#apisat-2024">2024 Asia-Pacific International Symposium on Aerospace Technology (APISAT) 참석</a></li>
+            <li><a href="#ecc-2022">2022 European Control Conference (ECC) 참석</a></li>
+            <li><a href="#ksas-apisat-2021">2021 KSAS Autumn Conference 및 2021 APISAT 참석</a></li>
+            <li><a href="#ksas-2018">2018 KSAS Autumn Conference 참석</a></li>
+            <li><a href="#med-2018">2018 Mediterranean Conference on Control and Automation (MED) 참석</a></li>
+        </ul>
+    </div>
+
+    <div id="apisat-2025" class="board-item">
         <h2>2025 Asia-Pacific International Symposium on Aerospace Technology (APISAT) 참석</h2>
         <p>2025.10.27-2025.10.29, 서울에서 열린 APISAT 2025 참석 with Kyutae Park and Wonseok Jung</p>
-        </div>
+    </div>
 
-    <div class="board-item">
+    <div id="aas-aiaa-2025-boston" class="board-item">
         <h2>2025 AAS/AIAA Astrodynamics Specialist Conference 참석</h2>
         <p>2025.08.10-2025.08.14, 미국 보스턴(USA, Massachusatts, Boston)에서 열린 AAS/AIAA Astrodynamics Specialist Conference 참석 with Prof. Youdan Kim</p>
-        </div>
+    </div>
 
-    <div class="board-item">
+    <div id="eucass-2025" class="board-item">
         <h2>2025 European Conference for Aero-Space Sciences (EUCASS) 참석</h2>
         <p>2025.06.29-2025.07.04, 이탈리아 로마(Italy, Rome)에서 열린 EUCASS 2025 참석 with Prof. Jongho Park and Prof. Seokwon Lee</p>
-        </div>
+    </div>
 
-    <div class="board-item">
+    <div id="aas-aiaa-2025-hawaii" class="board-item">
         <h2>2025 AAS/AIAA Space Flight Mechanics Meeting 참석</h2>
         <p>2025.01.19-2025.01.23, 미국 하와이 카우아이(USA, Hawaii, Kauai)에서 열린 AAS/AIAA Space Flight Mechanics Meeting 참석</p>
-        </div>
+    </div>
 
-    <div class="board-item">
+    <div id="apisat-2024" class="board-item">
         <h2>2024 Asia-Pacific International Symposium on Aerospace Technology (APISAT) 참석</h2>
         <p>2024.10.28-2024.10.30, 호주 애들레이드(Australia, Adelaide)에서 열린 APISAT 2024 참석</p>
-        </div>
+    </div>
 
-    <div class="board-item">
+    <div id="ecc-2022" class="board-item">
         <h2>2022 European Control Conference (ECC) 참석</h2>
         <p>2022.07.12-2022.07.15, 영국 런던(England, London)에서 열린 ECC 2022 참석</p>
-        </div>
+    </div>
 
-    <div class="board-item">
+    <div id="ksas-apisat-2021" class="board-item">
         <h2>2021 KSAS Autumn Conference 및 2021 APISAT 참석</h2>
-        <p>2021.11.15-2018.11.19, 제주도 제주시에서 열린 한국항공우주학회 추계학술대회 2021 및 APISAT 2021 참석 with Seung Lee, Soyul Jeon, and Suyeon Kim</p>
-        </div>
+        <p>2021.11.15-2021.11.19, 제주도 제주시에서 열린 한국항공우주학회 추계학술대회 2021 및 APISAT 2021 참석 with Seung Lee, Soyul Jeon, and Suyeon Kim</p>
+    </div>
 
-    <div class="board-item">
+    <div id="ksas-2018" class="board-item">
         <h2>2018 KSAS Autumn Conference 참석</h2>
         <p>2018.11.28-2018.11.30, 제주도 제주시에서 열린 한국항공우주학회 추계학술대회 2018 참석</p>
-        </div>
+    </div>
 
-    <div class="board-item">
+    <div id="med-2018" class="board-item">
         <h2>2018 Mediterranean Conference on Control and Automation (MED) 참석</h2>
         <p>2018.06.19-2018.6.22, 크로아티아 자다르(Croatia, Zadar)에서 열린 MED 2018 참석</p>
-        </div>
+    </div>
 </body>
 </html>
