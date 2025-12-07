@@ -13,15 +13,23 @@
             padding: 20px;
         }
 
-        /* [수정됨] 헤더 스타일: 겹침 방지 및 레이아웃 개선 */
+        /* 헤더 스타일: 로고 -> 타이틀 -> 메뉴 순서 */
         header {
             display: flex;
-            flex-direction: column; /* 수직 정렬 (제목 위, 메뉴 아래) */
-            align-items: center;    /* 수평 중앙 정렬 */
+            flex-direction: column;
+            align-items: center;
             padding: 30px 0;
             border-bottom: 1px solid #ccc;
             margin-bottom: 40px;
         }
+        
+        /* 로고 이미지 스타일 */
+        .header-logo-img {
+            max-width: 300px; /* 로고 크기 조절 (필요에 따라 변경 가능) */
+            height: auto;
+            margin-bottom: 15px; /* 타이틀과의 간격 */
+        }
+
         .header-title {
             font-size: 2.0em;
             font-weight: 900;
@@ -30,9 +38,9 @@
             margin-bottom: 0;
         }
         nav {
-            width: 100%;            /* 전체 너비 사용 */
-            text-align: right;      /* 메뉴 우측 정렬 */
-            margin-top: 20px;       /* 제목과의 간격 확보 (겹침 방지) */
+            width: 100%;
+            text-align: right;
+            margin-top: 20px;
             font-size: 1.05em;
         }
         nav a {
@@ -46,13 +54,12 @@
             color: #000;
         }
 
-        /* 모바일 반응형: 화면이 좁을 땐 메뉴도 중앙 정렬 */
+        /* 모바일 반응형 */
         @media (max-width: 768px) {
             nav { text-align: center; margin-top: 15px; }
             nav a { margin: 0 8px; }
         }
 
-        /* 본문 스타일 */
         h2 {
             font-size: 1.5em; font-weight: 700; color: #222;
             margin-top: 40px; margin-bottom: 15px; padding-bottom: 10px;
@@ -67,6 +74,8 @@
 </head>
 <body>
     <header>
+        <img src="AASL 로고.png" alt="AASL Logo" class="header-logo-img">
+        
         <div class="header-title">Aerospace and Autonomous Systems Laboratory</div>
         <nav>
             <a href="index.html">Home</a>
