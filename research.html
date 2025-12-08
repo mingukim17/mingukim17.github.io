@@ -13,53 +13,22 @@
             padding: 20px;
         }
 
-        /* 헤더 스타일 */
+        /* 헤더 스타일 (공통) */
         header {
             display: flex;
-            justify-content: space-between; /* 좌측 로고, 우측 메뉴 배분 */
-            align-items: center;            /* 수직 중앙 정렬 */
+            justify-content: space-between;
+            align-items: center;
             padding: 20px 0;
             border-bottom: 1px solid #ccc;
             margin-bottom: 40px;
         }
+        .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+        .logo-img { height: 50px; width: auto; }
+        .logo-text { font-size: 1.5em; font-weight: 900; color: #222; }
+        nav { font-size: 1.05em; }
+        nav a { text-decoration: none; color: #444; margin-left: 20px; font-weight: 500; }
+        nav a:hover { text-decoration: underline; color: #000; }
 
-        /* 로고 링크 컨테이너 (이미지 + 텍스트) */
-        .logo-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            gap: 12px; /* 이미지와 텍스트 사이 간격 */
-        }
-
-        /* 로고 이미지 스타일 */
-        .logo-img {
-            height: 50px; /* 헤더에 어울리는 높이 설정 */
-            width: auto;  /* 비율 유지 */
-        }
-
-        /* 로고 텍스트 스타일 */
-        .logo-text {
-            font-size: 1.5em;
-            font-weight: 900;
-            color: #222;
-        }
-
-        /* 내비게이션 스타일 */
-        nav {
-            font-size: 1.05em;
-        }
-        nav a {
-            text-decoration: none;
-            color: #444;
-            margin-left: 20px;
-            font-weight: 500;
-        }
-        nav a:hover {
-            text-decoration: underline;
-            color: #000;
-        }
-
-        /* 모바일 반응형 */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 15px; }
             nav { text-align: center; }
@@ -74,10 +43,39 @@
         }
         h3 {
             font-size: 1.3em; font-weight: 600; color: #444;
-            margin-top: 30px; margin-bottom: 10px;
+            margin-top: 40px; margin-bottom: 10px;
         }
-        ul { padding-left: 20px; margin-left: 10px; }
+        ul { padding-left: 20px; margin-left: 10px; margin-bottom: 20px; }
         li { margin-bottom: 8px; }
+
+        /* [추가됨] 프로젝트 이미지 컨테이너 스타일 */
+        .project-images {
+            display: flex;
+            align-items: center;     /* 수직 중앙 정렬 */
+            gap: 15px;               /* 이미지 사이 간격 */
+            margin-top: 15px;
+            margin-bottom: 40px;     /* 다음 섹션과의 간격 */
+            flex-wrap: nowrap;       /* 줄바꿈 방지 (한 줄 유지) */
+            overflow-x: auto;        /* 화면보다 넓으면 가로 스크롤 허용 (모바일 대응) */
+        }
+        
+        /* 이미지 공통 스타일 */
+        .project-images img {
+            height: 250px;           /* 높이 고정 (조절 가능) */
+            width: auto;             /* 비율 유지 */
+            max-width: 100%;         /* 부모 요소 넘지 않게 */
+            object-fit: contain;     /* 이미지 비율 유지 */
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 약한 그림자 */
+            flex-shrink: 0;          /* 공간 부족해도 찌그러지지 않게 */
+        }
+
+        /* 모바일 반응형: 이미지가 너무 작아지지 않도록 높이 자동 조절 */
+        @media (max-width: 768px) {
+            .project-images img {
+                height: 150px;       /* 모바일에서는 높이를 조금 줄임 */
+            }
+        }
     </style>
 </head>
 <body>
@@ -86,7 +84,6 @@
             <img src="AASL 로고.png" alt="AASL Logo" class="logo-img">
             <span class="logo-text">AASL</span>
         </a>
-        
         <nav>
             <a href="index.html">Home</a>
             <a href="people.html">People</a>
@@ -127,6 +124,10 @@
         <li>A quantitative method to evaluate GNSS signal quality under stadium environments</li>
         <li>Study on acceleration measurement validation</li>
     </ul>
+    <div class="project-images">
+        <img src="images/GDOP_examples.png" alt="GDOP Examples">
+        <img src="images/SDratio_avgR_graph_raw.png" alt="SD Ratio Graph">
+    </div>
 
     <h3>Space-K BIG Project - Space Transportation Mission Center (KASA)</h3>
     <ul>
@@ -141,18 +142,32 @@
         <li>Trajectory design of ReUSV (Reusable Unmanned Space Vehicles)</li>
         <li>Study on GNC of ReUSV</li>
     </ul>
+    <div class="project-images">
+        <img src="images/reusv1.jpg" alt="ReUSV 1">
+        <img src="images/reusv2.jpg" alt="ReUSV 2">
+    </div>
 
     <h3>The Performance Test and Comparison Test of OHCOACH Cell-X and Cell-Y (Fitogether)</h3>
     <ul>
         <li>Performance analysis of wearable EPTS</li>
         <li>Study on the validation of acceleration measurement methodology</li>
     </ul>
+    <div class="project-images">
+        <img src="images/hyochang.png" alt="Hyochang">
+        <img src="images/seogwipo.png" alt="Seogwipo">
+        <img src="images/daegu.png" alt="Daegu">
+    </div>
 
     <h3>The Filter Design of GPS/IMU Integration for OHCOACH Cells (Fitogether)</h3>
     <ul>
         <li>Design of integration filters using GPS/INS data</li>
         <li>Design of real-time GPS/INS integration filters of EPTS for football players</li>
     </ul>
+    <div class="project-images">
+        <img src="images/OHCOACH Cell n 3DM GNSS IMU.jpg" alt="OHCOACH Cell">
+        <img src="images/Position Comparison with AHRS.jpg" alt="Position Comparison">
+        <img src="images/3 Axis Velocity Comparison with AHRS.jpg" alt="Velocity Comparison">
+    </div>
 
     <h3>Management System Analysis and Planning Research for the Drone Automatic Operation (FRI, 국립소방연구원)</h3>
     <ul>
