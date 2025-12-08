@@ -5,87 +5,69 @@
     <title>Board - AASL</title>
     <style>
         html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        /* 헤더 스타일 */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 40px;
-        }
+        body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1100px; margin: 0 auto; padding: 20px; }
+        /* 헤더 스타일 (유지) */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid #ccc; margin-bottom: 40px; }
         .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
         .logo-img { height: 50px; width: auto; }
         .logo-text { font-size: 1.5em; font-weight: 900; color: #222; }
         nav { font-size: 1.05em; }
         nav a { text-decoration: none; color: #444; margin-left: 20px; font-weight: 500; }
         nav a:hover { text-decoration: underline; color: #000; }
-
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 15px; }
-            nav { text-align: center; }
-            nav a { margin: 0 10px; }
-        }
-
-        h1 { font-size: 2.2em; margin-bottom: 30px; color: #222; }
+        @media (max-width: 768px) { header { flex-direction: column; gap: 15px; } nav { text-align: center; } nav a { margin: 0 10px; } }
         
-        /* TOC 스타일 */
-        .toc {
-            background-color: #f9f9f9;
-            padding: 20px;
-            border: 1px solid #e0e0e0;
-            margin-bottom: 40px;
-            border-radius: 8px;
-        }
+        h1 { font-size: 2.2em; margin-bottom: 30px; color: #222; }
+        .toc { background-color: #f9f9f9; padding: 20px; border: 1px solid #e0e0e0; margin-bottom: 40px; border-radius: 8px; }
         .toc ul { list-style-type: disc; padding-left: 20px; margin: 0; }
         .toc li { margin-bottom: 8px; }
         .toc a { text-decoration: none; color: #333; font-weight: 500; }
         .toc a:hover { text-decoration: underline; color: #1a0dab; }
 
-        /* 게시물 스타일 */
+        /* [수정됨] 게시물 아이템 스타일 (Flexbox 적용) */
         .board-item {
+            display: flex;          /* 가로 배치 시작 */
+            align-items: flex-start; /* 상단 기준 정렬 */
+            gap: 25px;              /* 이미지와 텍스트 사이 간격 */
             margin-bottom: 40px;
-            padding-top: 20px;
+            padding-top: 30px;
             border-top: 1px solid #eee;
         }
-        .board-item h2 {
-            font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #222;
-        }
         
-        /* 페이지네이션 스타일 */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 50px;
-            gap: 10px;
+        /* [추가됨] 게시물 이미지 스타일 */
+        .board-img {
+            height: 160px;          /* 높이 통일 (텍스트 분량 고려하여 설정) */
+            width: auto;            /* 비율 유지 */
+            border-radius: 6px;     /* 모서리 둥글게 */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 약한 그림자 */
+            flex-shrink: 0;         /* 공간이 부족해도 이미지가 찌그러지지 않음 */
+            
+            /* 우클릭 방지 보조 스타일 */
+            -webkit-user-drag: none;
+            user-select: none;
         }
-        .pagination button {
-            padding: 8px 14px;
-            border: 1px solid #ddd;
-            background-color: #fff;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 1em;
-            color: #333;
+
+        /* [추가됨] 게시물 텍스트 영역 스타일 */
+        .board-content {
+            flex: 1; /* 남은 공간을 모두 차지 */
         }
+
+        .board-item h2 { font-size: 1.4em; margin-top: 0; margin-bottom: 15px; color: #222; }
+        
+        /* 모바일 반응형: 이미지를 위로, 텍스트를 아래로 */
+        @media (max-width: 768px) {
+            .board-item { flex-direction: column; gap: 15px; }
+            .board-img { 
+                height: auto; 
+                width: 100%; 
+                max-height: 250px; 
+                object-fit: cover; /* 이미지가 너무 길어지지 않게 잘라서 맞춤 */
+            }
+        }
+
+        .pagination { display: flex; justify-content: center; margin-top: 50px; gap: 10px; }
+        .pagination button { padding: 8px 14px; border: 1px solid #ddd; background-color: #fff; cursor: pointer; border-radius: 4px; font-size: 1em; color: #333; }
         .pagination button:hover:not(:disabled) { background-color: #f1f1f1; }
-        .pagination button.active {
-            background-color: #333;
-            color: #fff;
-            border-color: #333;
-            font-weight: bold;
-        }
+        .pagination button.active { background-color: #333; color: #fff; border-color: #333; font-weight: bold; }
         .pagination button:disabled { color: #ccc; cursor: default; border-color: #eee; }
     </style>
 </head>
@@ -123,48 +105,75 @@
 
     <div id="board-list">
         <div id="apisat-2025" class="board-item">
-            <h2>2025 Asia-Pacific International Symposium on Aerospace Technology (APISAT) 참석</h2>
-            <p>2025.10.27-2025.10.29, 서울에서 열린 APISAT 2025 참석 with Kyutae Park and Wonseok Jung</p>
+            <img src="images/board/2025apisat.jpg" alt="APISAT 2025" class="board-img" oncontextmenu="return false;">
+            <div class="board-content">
+                <h2>2025 Asia-Pacific International Symposium on Aerospace Technology (APISAT) 참석</h2>
+                <p>2025.10.27-2025.10.29, 서울에서 열린 APISAT 2025 참석 with Kyutae Park and Wonseok Jung</p>
+            </div>
         </div>
-
+        
         <div id="aas-aiaa-2025-boston" class="board-item">
-            <h2>2025 AAS/AIAA Astrodynamics Specialist Conference 참석</h2>
-            <p>2025.08.10-2025.08.14, 미국 보스턴(USA, Massachusatts, Boston)에서 열린 AAS/AIAA Astrodynamics Specialist Conference 참석 with Prof. Youdan Kim</p>
+            <img src="images/board/2025asc.jpg" alt="AAS/AIAA ASC 2025" class="board-img" oncontextmenu="return false;">
+            <div class="board-content">
+                <h2>2025 AAS/AIAA Astrodynamics Specialist Conference 참석</h2>
+                <p>2025.08.10-2025.08.14, 미국 보스턴(USA, Massachusatts, Boston)에서 열린 AAS/AIAA Astrodynamics Specialist Conference 참석 with Prof. Youdan Kim</p>
+            </div>
         </div>
 
         <div id="eucass-2025" class="board-item">
-            <h2>2025 European Conference for Aero-Space Sciences (EUCASS) 참석</h2>
-            <p>2025.06.29-2025.07.04, 이탈리아 로마(Italy, Rome)에서 열린 EUCASS 2025 참석 with Prof. Jongho Park and Prof. Seokwon Lee</p>
+            <img src="images/board/2025eucass.jpg" alt="EUCASS 2025" class="board-img" oncontextmenu="return false;">
+            <div class="board-content">
+                <h2>2025 European Conference for Aero-Space Sciences (EUCASS) 참석</h2>
+                <p>2025.06.29-2025.07.04, 이탈리아 로마(Italy, Rome)에서 열린 EUCASS 2025 참석 with Prof. Jongho Park and Prof. Seokwon Lee</p>
+            </div>
         </div>
 
         <div id="aas-aiaa-2025-hawaii" class="board-item">
-            <h2>2025 AAS/AIAA Space Flight Mechanics Meeting 참석</h2>
-            <p>2025.01.19-2025.01.23, 미국 하와이 카우아이(USA, Hawaii, Kauai)에서 열린 AAS/AIAA Space Flight Mechanics Meeting 참석</p>
+            <img src="images/board/2025sfm.jpg" alt="AAS/AIAA SFM 2025" class="board-img" oncontextmenu="return false;">
+            <div class="board-content">
+                <h2>2025 AAS/AIAA Space Flight Mechanics Meeting 참석</h2>
+                <p>2025.01.19-2025.01.23, 미국 하와이 카우아이(USA, Hawaii, Kauai)에서 열린 AAS/AIAA Space Flight Mechanics Meeting 참석</p>
+            </div>
         </div>
 
         <div id="apisat-2024" class="board-item">
-            <h2>2024 Asia-Pacific International Symposium on Aerospace Technology (APISAT) 참석</h2>
-            <p>2024.10.28-2024.10.30, 호주 애들레이드(Australia, Adelaide)에서 열린 APISAT 2024 참석</p>
+            <img src="images/board/2024apisat.jpg" alt="APISAT 2024" class="board-img" oncontextmenu="return false;">
+            <div class="board-content">
+                <h2>2024 Asia-Pacific International Symposium on Aerospace Technology (APISAT) 참석</h2>
+                <p>2024.10.28-2024.10.30, 호주 애들레이드(Australia, Adelaide)에서 열린 APISAT 2024 참석</p>
+            </div>
         </div>
 
         <div id="ecc-2022" class="board-item">
-            <h2>2022 European Control Conference (ECC) 참석</h2>
-            <p>2022.07.12-2022.07.15, 영국 런던(England, London)에서 열린 ECC 2022 참석</p>
+            <img src="images/board/2022ecc.jpg" alt="ECC 2022" class="board-img" oncontextmenu="return false;">
+            <div class="board-content">
+                <h2>2022 European Control Conference (ECC) 참석</h2>
+                <p>2022.07.12-2022.07.15, 영국 런던(England, London)에서 열린 ECC 2022 참석</p>
+            </div>
         </div>
 
         <div id="ksas-apisat-2021" class="board-item">
-            <h2>2021 KSAS Autumn Conference 및 2021 APISAT 참석</h2>
-            <p>2021.11.15-2021.11.19, 제주도 제주시에서 열린 한국항공우주학회 추계학술대회 2021 및 APISAT 2021 참석 with Seung Lee, Soyul Jeon, and Suyeon Kim</p>
+            <img src="images/board/2021ksas_autumn.jpg" alt="KSAS & APISAT 2021" class="board-img" oncontextmenu="return false;">
+            <div class="board-content">
+                <h2>2021 KSAS Autumn Conference 및 2021 APISAT 참석</h2>
+                <p>2021.11.15-2021.11.19, 제주도 제주시에서 열린 한국항공우주학회 추계학술대회 2021 및 APISAT 2021 참석 with Seung Lee, Soyul Jeon, and Suyeon Kim</p>
+            </div>
         </div>
 
         <div id="ksas-2018" class="board-item">
-            <h2>2018 KSAS Autumn Conference 참석</h2>
-            <p>2018.11.28-2018.11.30, 제주도 제주시에서 열린 한국항공우주학회 추계학술대회 2018 참석</p>
+            <img src="images/board/2018ksas_autumn.jpg" alt="KSAS 2018" class="board-img" oncontextmenu="return false;">
+            <div class="board-content">
+                <h2>2018 KSAS Autumn Conference 참석</h2>
+                <p>2018.11.28-2018.11.30, 제주도 제주시에서 열린 한국항공우주학회 추계학술대회 2018 참석</p>
+            </div>
         </div>
 
         <div id="med-2018" class="board-item">
-            <h2>2018 Mediterranean Conference on Control and Automation (MED) 참석</h2>
-            <p>2018.06.19-2018.6.22, 크로아티아 자다르(Croatia, Zadar)에서 열린 MED 2018 참석</p>
+            <img src="images/board/2018med.jpg" alt="MED 2018" class="board-img" oncontextmenu="return false;">
+            <div class="board-content">
+                <h2>2018 Mediterranean Conference on Control and Automation (MED) 참석</h2>
+                <p>2018.06.19-2018.6.22, 크로아티아 자다르(Croatia, Zadar)에서 열린 MED 2018 참석</p>
+            </div>
         </div>
     </div>
 
@@ -174,24 +183,20 @@
         document.addEventListener("DOMContentLoaded", function() {
             const listItems = document.querySelectorAll(".board-item");
             const paginationContainer = document.getElementById("pagination");
-            
             const itemsPerPage = 10;
             const totalItems = listItems.length;
             const totalPages = Math.ceil(totalItems / itemsPerPage);
-            
             let currentPage = 1;
 
             function showPage(page) {
                 if (page < 1 || page > totalPages) return;
                 currentPage = page;
-
                 const start = (page - 1) * itemsPerPage;
                 const end = start + itemsPerPage;
-
                 listItems.forEach((item, index) => {
                     item.style.display = "none";
                     if (index >= start && index < end) {
-                        item.style.display = "block";
+                        item.style.display = "flex"; /* display: block에서 flex로 변경 필요 */
                     }
                 });
                 renderPaginationButtons();
@@ -199,13 +204,11 @@
 
             function renderPaginationButtons() {
                 paginationContainer.innerHTML = "";
-                
                 const prevBtn = document.createElement("button");
                 prevBtn.textContent = "<";
                 prevBtn.disabled = currentPage === 1;
                 prevBtn.onclick = () => showPage(currentPage - 1);
                 paginationContainer.appendChild(prevBtn);
-
                 for (let i = 1; i <= totalPages; i++) {
                     const btn = document.createElement("button");
                     btn.textContent = i;
@@ -213,7 +216,6 @@
                     btn.onclick = () => showPage(i);
                     paginationContainer.appendChild(btn);
                 }
-
                 const nextBtn = document.createElement("button");
                 nextBtn.textContent = ">";
                 nextBtn.disabled = currentPage === totalPages;
