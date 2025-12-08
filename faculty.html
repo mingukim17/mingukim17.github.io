@@ -13,7 +13,7 @@
             padding: 20px;
         }
 
-        /* 헤더 스타일 (공통) */
+        /* 헤더 스타일 */
         header {
             display: flex;
             justify-content: space-between;
@@ -22,36 +22,74 @@
             border-bottom: 1px solid #ccc;
             margin-bottom: 40px;
         }
-        .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+
+        /* 로고 링크 */
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+        }
         .logo-img { height: 50px; width: auto; }
         .logo-text { font-size: 1.5em; font-weight: 900; color: #222; }
-        nav { font-size: 1.05em; }
-        nav a { text-decoration: none; color: #444; margin-left: 20px; font-weight: 500; }
-        nav a:hover { text-decoration: underline; color: #000; }
 
+        /* 내비게이션 및 드롭다운 스타일 */
+        nav { font-size: 1.05em; }
+        
+        nav a {
+            text-decoration: none;
+            color: #444;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        /* 드롭다운 설정 */
+        .dropdown { display: inline-block; position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #f9f9f9;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+            text-align: left;
+            padding: 5px 0;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            margin-left: 0;
+            font-size: 0.95em;
+        }
+        .dropdown-content a:hover { background-color: #f1f1f1; text-decoration: none; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* 모바일 반응형 */
         @media (max-width: 768px) {
             header { flex-direction: column; gap: 15px; }
             nav { text-align: center; }
             nav a { margin: 0 10px; }
+            .dropdown-content { left: 50%; transform: translateX(-50%); right: auto; }
         }
 
-        h1 { font-size: 2.2em; margin-bottom: 30px; color: #222; }
-        
-        /* 교수님 소개 섹션 스타일 (레이아웃 변경) */
+        /* 프로필 섹션 스타일 */
         .profile-section {
-            display: flex; /* 가로 배치 */
-            justify-content: space-between; /* 양쪽 끝 정렬 */
-            align-items: flex-start; /* 위쪽 정렬 */
-            gap: 40px; /* 텍스트와 이미지 사이 간격 */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
             margin-bottom: 40px;
         }
-        .profile-info {
-            flex: 1; /* 남은 공간 차지 */
-        }
-        .profile-image {
-            max-width: 300px; /* 이미지 최대 너비 제한 */
-            flex-shrink: 0;   /* 공간 부족해도 이미지 줄어들지 않음 */
-        }
+        .profile-info { flex: 1; }
+        .profile-image { max-width: 300px; flex-shrink: 0; }
         .profile-image img {
             width: 100%;
             height: auto;
@@ -59,10 +97,10 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        /* 모바일 반응형: 세로 배치로 변경 */
+        /* 프로필 모바일 반응형 */
         @media (max-width: 768px) {
             .profile-section {
-                flex-direction: column-reverse; /* 이미지가 위로 오게 하려면 column-reverse, 아래면 column */
+                flex-direction: column-reverse;
                 align-items: center;
             }
             .profile-image {
@@ -71,6 +109,7 @@
             }
         }
 
+        h1 { font-size: 2.2em; margin-bottom: 30px; color: #222; }
         h2 {
             font-size: 1.8em; font-weight: 700; color: #222;
             margin-top: 0; margin-bottom: 10px;
@@ -105,15 +144,18 @@
             <img src="AASL 로고.png" alt="AASL Logo" class="logo-img">
             <span class="logo-text">AASL</span>
         </a>
+        
         <nav>
             <a href="index.html">Home</a>
+            
             <div class="dropdown">
-                <a href="people.html">People </a>
+                <a href="people.html">People</a>
                 <div class="dropdown-content">
                     <a href="faculty.html">Faculty</a>
                     <a href="members.html">Members</a>
                 </div>
             </div>
+
             <a href="research.html">Research</a>
             <a href="publication.html">Publications</a>
             <a href="lectures.html">Lectures</a>
@@ -132,12 +174,12 @@
                 Associate Professor,<br>
                 Division of Mechanical and Electronics Engineering,<br>
                 Hansung University<br>
-                Email : mingukim@hansung.ac.kr</a>
+                Email : <a href="mailto:mingukim@hansung.ac.kr" style="color:#1a0dab;">mingukim@hansung.ac.kr</a>
             </p>
         </div>
         
         <div class="profile-image">
-            <img src="images/1024 - ADEX 2015 (15).JPG" alt="Prof. Mingu Kim" oncontextmenu="return false;">
+            <img src="images/1024 - ADEX 2015 (15).jpg" alt="Prof. Mingu Kim">
         </div>
     </div>
 
