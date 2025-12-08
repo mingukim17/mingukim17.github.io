@@ -13,21 +13,21 @@
             padding: 20px;
         }
 
-        /* 헤더 스타일: 메뉴 -> 로고 -> 타이틀 순서 */
+        /* 헤더 스타일 */
         header {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 0 40px 0; /* 상단 여백 조정 */
+            padding: 20px 0 40px 0;
             border-bottom: 1px solid #ccc;
             margin-bottom: 40px;
         }
         
-        /* 내비게이션 스타일 (최상단 배치) */
+        /* 내비게이션 (최상단) */
         nav {
             width: 100%;
             text-align: right;
-            margin-bottom: 30px; /* 아래쪽 요소(로고)와의 간격 */
+            margin-bottom: 30px;
             font-size: 1.05em;
         }
         nav a {
@@ -41,14 +41,14 @@
             color: #000;
         }
 
-        /* 로고 이미지 스타일 */
+        /* 로고 이미지 */
         .header-logo-img {
             max-width: 300px;
             height: auto;
-            margin-bottom: 15px; /* 타이틀과의 간격 */
+            margin-bottom: 15px;
         }
 
-        /* 타이틀 스타일 */
+        /* 타이틀 */
         .header-title {
             font-size: 2.0em;
             font-weight: 900;
@@ -57,10 +57,29 @@
             margin-bottom: 0;
         }
 
+        /* [추가됨] 메인 이미지 배너 스타일 */
+        .main-banner {
+            display: flex;
+            justify-content: center; /* 가운데 정렬 */
+            align-items: center;     /* 수직 가운데 정렬 */
+            gap: 15px;               /* 이미지 사이 간격 */
+            margin-bottom: 50px;     /* Notice와의 간격 */
+            flex-wrap: wrap;         /* 화면 좁으면 줄바꿈 */
+        }
+        .main-banner img {
+            height: 300px;           /* 높이 고정 (원본 사이트 참고) */
+            width: auto;             /* 너비는 비율에 맞게 자동 */
+            object-fit: contain;     /* 이미지 잘림 방지 */
+            max-width: 100%;         /* 화면 넘어가지 않게 */
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 살짝 그림자 효과 */
+        }
+
         /* 모바일 반응형 */
         @media (max-width: 768px) {
             nav { text-align: center; margin-bottom: 20px; }
             nav a { margin: 0 8px; }
+            .main-banner img { height: auto; width: 100%; max-width: 400px; } /* 모바일선 세로로 꽉 차게 */
         }
 
         h2 {
@@ -86,10 +105,16 @@
             <a href="board.html">Board</a>
         </nav>
 
-        <img src="AASL 로고.png" alt="AASL Logo" class="header-logo-img">
+        <img src="images/AASL 로고.png" alt="AASL Logo" class="header-logo-img">
         
-        <div class="header-title">Aerospace and Autonomous Systems Laboratory (AASL)</div>
+        <div class="header-title">Aerospace and Autonomous Systems Laboratory</div>
     </header>
+
+    <div class="main-banner">
+        <img src="images/snuace_S01.jpg" alt="SNUACE S01">
+        <img src="images/snusat1b.jpg" alt="SNUSAT-1B">
+        <img src="images/OHCOACH Cell n 3DM GNSS IMU.jpg" alt="OHCOACH Cell & GNSS IMU">
+    </div>
 
     <h2>Notice</h2>
     <p>
