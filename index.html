@@ -13,34 +13,21 @@
             padding: 20px;
         }
 
-        /* 헤더 스타일: 로고 -> 타이틀 -> 메뉴 순서 */
+        /* 헤더 스타일: 메뉴 -> 로고 -> 타이틀 순서 */
         header {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 30px 0;
+            padding: 20px 0 40px 0; /* 상단 여백 조정 */
             border-bottom: 1px solid #ccc;
             margin-bottom: 40px;
         }
         
-        /* 로고 이미지 스타일 */
-        .header-logo-img {
-            max-width: 300px; /* 로고 크기 조절 (필요에 따라 변경 가능) */
-            height: auto;
-            margin-bottom: 15px; /* 타이틀과의 간격 */
-        }
-
-        .header-title {
-            font-size: 2.0em;
-            font-weight: 900;
-            color: #222;
-            text-align: center;
-            margin-bottom: 0;
-        }
+        /* 내비게이션 스타일 (최상단 배치) */
         nav {
             width: 100%;
             text-align: right;
-            margin-top: 20px;
+            margin-bottom: 30px; /* 아래쪽 요소(로고)와의 간격 */
             font-size: 1.05em;
         }
         nav a {
@@ -54,9 +41,25 @@
             color: #000;
         }
 
+        /* 로고 이미지 스타일 */
+        .header-logo-img {
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 15px; /* 타이틀과의 간격 */
+        }
+
+        /* 타이틀 스타일 */
+        .header-title {
+            font-size: 2.0em;
+            font-weight: 900;
+            color: #222;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
         /* 모바일 반응형 */
         @media (max-width: 768px) {
-            nav { text-align: center; margin-top: 15px; }
+            nav { text-align: center; margin-bottom: 20px; }
             nav a { margin: 0 8px; }
         }
 
@@ -74,9 +77,6 @@
 </head>
 <body>
     <header>
-        <img src="AASL 로고.png" alt="AASL Logo" class="header-logo-img">
-        
-        <div class="header-title">Aerospace and Autonomous Systems Laboratory (AASL) </div>
         <nav>
             <a href="index.html">Home</a>
             <a href="people.html">People</a>
@@ -85,6 +85,10 @@
             <a href="lectures.html">Lectures</a>
             <a href="board.html">Board</a>
         </nav>
+
+        <img src="images/AASL 로고.png" alt="AASL Logo" class="header-logo-img">
+        
+        <div class="header-title">Aerospace and Autonomous Systems Laboratory</div>
     </header>
 
     <h2>Notice</h2>
