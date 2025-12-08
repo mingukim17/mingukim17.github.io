@@ -105,9 +105,29 @@
         @media (max-width: 768px) {
             nav { text-align: center; margin-bottom: 20px; }
             nav a { margin: 0 8px; }
-            .main-banner img { height: auto; width: 100%; max-width: 400px; } /* 모바일선 세로로 꽉 차게 */
+            .dropdown-content { left: 50%; transform: translateX(-50%); right: auto; } /* 모바일에선 중앙 정렬 */
         }
-
+        /* (이하 본문 스타일 유지) */
+        .main-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 50px;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
+        .main-banner img {
+            height: 300px;
+            width: auto;
+            max-width: 32%;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        @media (max-width: 768px) {
+            .main-banner img { height: auto; max-height: 300px; max-width: 32%; }
+        }
         h2 {
             font-size: 1.5em; font-weight: 700; color: #222;
             margin-top: 40px; margin-bottom: 15px; padding-bottom: 10px;
