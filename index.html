@@ -22,24 +22,6 @@
             border-bottom: 1px solid #ccc;
             margin-bottom: 40px;
         }
-        
-        /* 내비게이션 (최상단) */
-        nav {
-            width: 100%;
-            text-align: right;
-            margin-bottom: 30px;
-            font-size: 1.05em;
-        }
-        nav a {
-            text-decoration: none;
-            color: #444;
-            margin-left: 15px;
-            font-weight: 500;
-        }
-        nav a:hover {
-            text-decoration: underline;
-            color: #000;
-        }
 
         /* 로고 이미지 */
         .header-logo-img {
@@ -56,24 +38,68 @@
             text-align: center;
             margin-bottom: 0;
         }
+        
+       /* --- [수정됨] 내비게이션 및 드롭다운 스타일 --- */
+        nav {
+            width: 100%;
+            text-align: right;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+        }
+        
+        /* 기본 메뉴 링크 스타일 */
+        nav a {
+            text-decoration: none;
+            color: #444;
+            margin-left: 15px;
+            font-weight: 500;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
 
-        /* [추가됨] 메인 이미지 배너 스타일 */
-        .main-banner {
-            display: flex;
-            justify-content: center; /* 가운데 정렬 */
-            align-items: center;     /* 수직 가운데 정렬 */
-            gap: 15px;               /* 이미지 사이 간격 */
-            margin-bottom: 50px;     /* Notice와의 간격 */
-            flex-wrap: wrap;         /* 화면 좁으면 줄바꿈 */
+        /* 드롭다운 컨테이너 (People 메뉴 감싸는 박스) */
+        .dropdown {
+            display: inline-block; /* 다른 메뉴와 나란히 배치 */
+            position: relative;    /* 하위 메뉴 위치 기준점 */
         }
-        .main-banner img {
-            height: 200px;           /* 높이 고정 (원본 사이트 참고) */
-            width: auto;             /* 너비는 비율에 맞게 자동 */
-            object-fit: contain;     /* 이미지 잘림 방지 */
-            max-width: 100%;         /* 화면 넘어가지 않게 */
+
+        /* 드롭다운 내용 (Faculty, Members) - 기본적으로 숨김 */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;              /* 부모 기준 우측 정렬 */
+            background-color: #f9f9f9;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
             border-radius: 4px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 살짝 그림자 효과 */
+            text-align: left;
+            padding: 5px 0;
         }
+
+        /* 드롭다운 내부 링크 스타일 */
+        .dropdown-content a {
+            color: black;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;        /* 한 줄에 하나씩 */
+            margin-left: 0;        /* 상위 메뉴 margin 제거 */
+            font-size: 0.95em;
+        }
+
+        /* 드롭다운 내부 링크에 마우스 올렸을 때 */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            text-decoration: none;
+        }
+
+        /* [핵심] 드롭다운 컨테이너에 마우스를 올리면 내용 표시 */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        /* ------------------------------------------------ */
 
         /* 모바일 반응형 */
         @media (max-width: 768px) {
@@ -98,7 +124,12 @@
     <header>
         <nav>
             <a href="index.html">Home</a>
-            <a href="people.html">People</a>
+            <div class="dropdown">
+                <a href="people.html">People ▼</a> <div class="dropdown-content">
+                    <a href="faculty.html">Faculty</a>
+                    <a href="members.html">Members</a>
+                </div>
+            </div>
             <a href="research.html">Research</a>
             <a href="publication.html">Publications</a>
             <a href="lectures.html">Lectures</a>
