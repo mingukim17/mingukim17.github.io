@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>2026 Lectures - AASL</title>
+   <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 헤더 스타일 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 40px;
+        }
+        .logo-link { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+        .logo-img { height: 50px; width: auto; }
+        .logo-text { font-size: 1.5em; font-weight: 900; color: #222; }
+         /* 내비게이션 및 드롭다운 */
+        nav { font-size: 1.05em; }
+        nav a { text-decoration: none; color: #444; margin-left: 20px; font-weight: 500; }
+        nav a:hover { text-decoration: underline; color: #000; }
+
+        .dropdown { display: inline-block; position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #f9f9f9;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 4px;
+            text-align: left;
+            padding: 5px 0;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            margin-left: 0;
+            font-size: 0.95em;
+        }
+        .dropdown-content a:hover { background-color: #f1f1f1; text-decoration: none; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; }
+            nav { text-align: center; }
+            nav a { margin: 0 10px; }
+        }
+
+        h1 { font-size: 2.2em; margin-bottom: 30px; color: #222; }
+        h2 {
+            font-size: 1.8em; font-weight: 700; color: #222;
+            margin-top: 50px; margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        ul { padding-left: 20px; margin-left: 10px; }
+        li { margin-bottom: 15px; }
+        strong { color: #000; font-weight: 600; }
+
+        /* 뒤로가기 링크 스타일 */
+        .back-link {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 10px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .back-link:hover { color: #333; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-link">
+            <img src="AASL 로고.png" alt="AASL Logo" class="logo-img">
+            <span class="logo-text">AASL</span>
+        </a>
+        <nav>
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="people.html">People</a>
+                <div class="dropdown-content">
+                    <a href="faculty.html">Faculty</a>
+                    <a href="members.html">Members</a>
+                </div>
+            </div>
+            <a href="research.html">Research</a>
+            <a href="publication.html">Publications</a>
+            <a href="lectures.html">Lectures</a>
+            <a href="board.html">Board</a>
+        </nav>
+    </header>
+
+    <a href="lectures.html" class="back-link">&lt; Back to Lectures</a>
+
+    <h1>Lectures in 2026</h1>
+
+    <h2>1st semester, 2026</h2>
+    <ul>
+        <li><strong>Fundamentals of Robotics Engineering (로봇공학기초)</strong> - This lecture will be provided as a blended lecture(1.5hr online lecture + 1.5hr offline lecture).
+            <ul>
+                <li>Class A : Rm 612@공학관, PM 12:00 on Monday</li>
+                <li>Class B : Rm 612@공학관, AM 10:30 on Thursday</li>
+                <li>Class N : Rm 612@공학관, PM 06:00 on Monday</li>
+            </ul>
+        </li>
+        <li><strong>Automatic Control (자동제어)</strong> - This lecture will be provided as a 3hr offline lecture.
+            <ul>
+                <li>Class B : Rm 516@공학관, PM 03:00 on Thursday</li>
+            </ul>
+        </li>
+    </ul>
+
+    
+</body>
+</html>
